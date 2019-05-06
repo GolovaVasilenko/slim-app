@@ -1,3 +1,13 @@
+
+<?php if(!empty($login_error)):?>
+    <?php foreach($login_error as $message) :?>
+    <div class="uk-alert-danger" uk-alert>
+        <a class="uk-alert-close" uk-close></a>
+            <p> <?=$message;?> </p>
+    </div>
+    <?php endforeach;?>
+<?php endif;?>
+
 <div class="uk-container uk-container-xsmall">
     <div class="panel-body">
         <form action="/login" class="form" method="post">
@@ -9,7 +19,11 @@
                 <label for="InputPassword1">Password</label>
                 <input type="password" name="password" class="uk-input" id="InputPassword1" placeholder="Password">
             </div>
+            <div class="uk-margin">
+                <label for="InputPassword1"><input class="uk-checkbox" value="1" name="remember" type="checkbox"> Remember me</label>
+            </div>
             <button class="uk-button uk-button-default">Submit</button>
+
         </form>
     </div>
 </div>
