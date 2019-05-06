@@ -9,6 +9,11 @@ $container['view'] = function ($c) {
     return new Slim\Views\PhpRenderer($settings['template_path']);
 };
 
+// Register provider
+$container['flash'] = function () {
+    return new \Slim\Flash\Messages();
+};
+
 // monolog
 $container['logger'] = function ($c) {
     $settings = $c->get('settings')['logger'];

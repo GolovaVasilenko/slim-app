@@ -11,11 +11,10 @@ abstract class AbstractController
 
     protected $view;
 
-
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
         $this->view = $container->get('view');
-        $this->view->setLayout("layout.php");
+        $this->view->setLayout("main.phtml");
     }
 }
