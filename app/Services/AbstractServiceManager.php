@@ -10,16 +10,27 @@ abstract class AbstractServiceManager implements DbServiceManagerInterface
 {
     protected $c;
 
+    /**
+     * AbstractServiceManager constructor.
+     * @param ContainerInterface $container
+     */
     public function __construct(ContainerInterface $container)
     {
         $this->c = $container;
     }
 
+    /**
+     * @return mixed
+     */
     public function all()
     {
         return $this->c->get('db')->query("SELECT * FROM " . static::getTable())->fetchAll(\PDO::FETCH_CLASS, static::getClass());
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function find($id)
     {
         $prepare = $this->c->get('db')->prepare("SELECT * FROM " . static::getTable() . " WHERE id=:id");
@@ -29,6 +40,10 @@ abstract class AbstractServiceManager implements DbServiceManagerInterface
         return $prepare->fetch();
     }
 
+    /**
+     * @param $data
+     * @return mixed
+     */
     public function update($data)
     {
         $res = [];
@@ -45,6 +60,10 @@ abstract class AbstractServiceManager implements DbServiceManagerInterface
         return $stmt->execute($data);
     }
 
+    /**
+     * @param $data
+     * @return mixed
+     */
     public function insert($data)
     {
         $sql = "INSERT INTO " . static::getTable() . " (" . implode(',', array_keys($data)) . ") VALUES (:" . implode(',:', array_keys($data)) . ")";
@@ -53,6 +72,10 @@ abstract class AbstractServiceManager implements DbServiceManagerInterface
         return $this->c->get('db')->lastInsertId();
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function remove($id)
     {
         $sql = "DELETE FROM " . static::getTable() . " WHERE id=:id";
@@ -60,7 +83,13 @@ abstract class AbstractServiceManager implements DbServiceManagerInterface
         return $stmt->execute(['id' => $id]);
     }
 
+    /**
+     * @return mixed
+     */
     abstract public static function getTable();
 
+    /**
+     * @return mixed
+     */
     abstract public static function getClass();
 }
