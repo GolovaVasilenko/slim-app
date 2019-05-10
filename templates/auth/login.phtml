@@ -1,8 +1,8 @@
 
 <?php if(!empty($login_error)):?>
     <?php foreach($login_error as $message) :?>
-    <div class="uk-alert-danger" uk-alert>
-        <a class="uk-alert-close" uk-close></a>
+    <div class="uk-alert uk-alert-danger" >
+        <a class="uk-close uk-alert-close"></a>
             <p> <?=$message;?> </p>
     </div>
     <?php endforeach;?>
@@ -10,7 +10,7 @@
 
 <div class="uk-container uk-container-xsmall">
     <div class="panel-body">
-        <form action="/login" class="form" method="post">
+        <form action="/login" class="uk-form" method="post">
             <div class="uk-margin">
                 <label for="InputEmail1">Email address</label>
                 <input type="email" name="email" class="uk-input" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email">

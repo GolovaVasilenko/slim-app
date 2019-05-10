@@ -12,6 +12,10 @@ $app->get('/login', '\App\Controllers\AuthController:login')->setName('login.pag
 
 $app->post('/login', '\App\Controllers\AuthController:authenticate');
 
+$app->get('/registration', '\App\Controllers\RegistrationController:index')->setName('register.page');
+
+$app->post('/registration', '\App\Controllers\RegistrationController:registration');
+
 /*$app->get('/[{name}]', function (Request $request, Response $response, array $args) {
     // Sample log message
     $this->logger->info("Slim-Skeleton '/' route");
