@@ -16,3 +16,4 @@ $app->get('/registration', '\App\Controllers\RegistrationController:index')->add
 
 $app->post('/registration', '\App\Controllers\RegistrationController:registration');
 
+$app->get('/logout', '\App\Controllers\AuthController:login')->setName('logout');

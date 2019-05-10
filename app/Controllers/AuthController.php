@@ -49,8 +49,9 @@ class AuthController extends AbstractController
     public function logout($request, $response)
     {
         $auth = $this->container->get('auth');
-        if (!$auth->isLoggedIn()) {
-            return $response->withRedirect('/login');
+        if ($auth->isLoggedIn()) {
+            $auth->logOut();
+            return $response->withRedirect('/');
         }
     }
 }

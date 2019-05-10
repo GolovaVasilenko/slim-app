@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="563308c4-32c5-4dfb-a69c-4e481c35e0ae" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dependencies.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/dependencies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="90" selection-start-line="14" selection-start-column="90" selection-end-line="14" selection-end-column="90" />
+            <state relative-caret-position="342">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="e#7#29#0#PHP" expanded="true" />
               </folding>
@@ -34,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controllers/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="48" column="47" lean-forward="true" selection-start-line="48" selection-start-column="47" selection-end-line="48" selection-end-column="47" />
+            <state relative-caret-position="551">
+              <caret line="53" column="45" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -130,9 +124,9 @@
         <option value="$PROJECT_DIR$/app/Controllers/RegistrationController.php" />
         <option value="$PROJECT_DIR$/src/dependencies.php" />
         <option value="$PROJECT_DIR$/app/Controllers/ProfileController.php" />
-        <option value="$PROJECT_DIR$/app/Controllers/AuthController.php" />
         <option value="$PROJECT_DIR$/src/middleware.php" />
         <option value="$PROJECT_DIR$/src/routes.php" />
+        <option value="$PROJECT_DIR$/app/Controllers/AuthController.php" />
       </list>
     </option>
   </component>
@@ -233,41 +227,6 @@
               <item name="slim-app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
-            <path>
-              <item name="slim-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="slim-app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="slim-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="slim-app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="slim" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="slim-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="slim-app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="slim" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="slim" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="slim-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="slim-app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="slim" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="slim" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Slim" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="slim-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="slim-app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="slim" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="slim" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Slim" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -323,12 +282,12 @@
       <workItem from="1557216415603" duration="632000" />
       <workItem from="1557305717237" duration="3316000" />
       <workItem from="1557328277566" duration="2069000" />
-      <workItem from="1557473900772" duration="5859000" />
+      <workItem from="1557473900772" duration="6298000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61585000" />
+    <option name="totallyTimeSpent" value="62024000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-2" width="1920" height="1082" extended-state="6" />
@@ -339,9 +298,9 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.25925925" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.25925925" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1625" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1625" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -659,13 +618,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controllers/AuthController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="48" column="47" lean-forward="true" selection-start-line="48" selection-start-column="47" selection-end-line="48" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/slim/slim/Slim/Http/Request.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="111">
@@ -689,11 +641,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="90" selection-start-line="14" selection-start-column="90" selection-end-line="14" selection-end-column="90" />
+        <state relative-caret-position="342">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="e#7#29#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controllers/AuthController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="53" column="45" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
         </state>
       </provider>
     </entry>
