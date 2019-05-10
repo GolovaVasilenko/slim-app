@@ -9,7 +9,7 @@ class RegistrationController extends AbstractController
     {
         $messages = $this->container->get('flash')->getMessages();
 
-        return $this->view->render($response, 'auth/register.phtml', $messages);
+        return $this->view->render($response, 'auth/register.twig', $messages);
     }
 
     public function registration($request, $response)

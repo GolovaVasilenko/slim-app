@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Controllers;
 
 
@@ -10,7 +9,7 @@ class AuthController extends AbstractController
     {
         $messages = $this->container->get('flash')->getMessages();
 
-        return $this->view->render($response, 'auth/login.phtml', $messages);
+        return $this->view->render($response, 'auth/login.twig', $messages);
     }
 
     public function authenticate($request, $response, $args)

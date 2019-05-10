@@ -27,6 +27,6 @@ class PageController extends AbstractController
 
         //var_dump($home); die;
 
-        return $this->view->render($response, 'pages/page.phtml', $args);
+        return $this->view->render($response, 'pages/page.twig', $args);
     }
 }

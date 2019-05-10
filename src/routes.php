@@ -10,10 +10,10 @@ $app->get('/profile', '\App\Controllers\ProfileController:index')->add($auth)->s
 
 $app->get('/login', '\App\Controllers\AuthController:login')->add($is_auth)->setName('login.page');
 
+$app->get('/logout', '\App\Controllers\AuthController:login')->setName('logout');
+
 $app->post('/login', '\App\Controllers\AuthController:authenticate');
 
 $app->get('/registration', '\App\Controllers\RegistrationController:index')->add($is_auth)->setName('register.page');
 
 $app->post('/registration', '\App\Controllers\RegistrationController:registration');
-
-$app->get('/logout', '\App\Controllers\AuthController:login')->setName('logout');
