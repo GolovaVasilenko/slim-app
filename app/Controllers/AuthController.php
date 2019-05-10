@@ -15,7 +15,7 @@ class AuthController extends AbstractController
 
     public function authenticate($request, $response, $args)
     {
-        $auth = new \Delight\Auth\Auth($this->container->get('db'));
+        $auth = $this->container->get('auth');
 
         $data = $request->getParsedBody();
 
@@ -44,5 +44,13 @@ class AuthController extends AbstractController
             return $response->withRedirect('/login');
         }
 
+    }
+
+    public function logout($request, $response)
+    {
+        $auth = $this->container->get('auth');
+        if (!$auth->isLoggedIn()) {
+            return $response->withRedirect('/login');
+        }
     }
 }

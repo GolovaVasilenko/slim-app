@@ -20,7 +20,7 @@ class RegistrationController extends AbstractController
 
         try {
             $userId = $auth->register($data['email'], $data['password'], $data['username']);
-
+            return $response->withRedirect('/login');
         }
         catch (\Delight\Auth\InvalidEmailException $e) {
             $this->container->get('flash')->addMessage('reg_error', 'Invalid email address');

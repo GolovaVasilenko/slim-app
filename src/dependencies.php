@@ -31,3 +31,8 @@ $container['db'] = function ($c) {
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     return $pdo;
 };
+
+// Auth Container
+$container['auth'] = function($c) {
+    return new \Delight\Auth\Auth($c->get('db'));
+};
