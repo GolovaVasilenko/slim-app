@@ -16,4 +16,14 @@ class PageController extends AbstractController
 
         return $this->view->render($response, 'pages/page.twig', $args);
     }
+
+    public function show($request, $response)
+    {
+        $slug = trim($request->getRequestTarget(), "/");
+        $sm = new PageServiceManager($this->container);
+        $page = $sm->findByColumn('slug', $slug);
+        $args['page'] = $page;
+
+        return $this->view->render($response, 'pages/page.twig', $args);
+    }
 }

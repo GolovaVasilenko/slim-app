@@ -14,8 +14,12 @@ $auth = function($request, $response, $next) {
 };
 
 $is_auth = function($request, $response, $next) {
-    if($request->getRequestTarget() == '/login' || $request->getRequestTarget() == '/registration') {
-        return $response->withRedirect('/');
+    $auth = $this->get('auth');
+
+    if ($request->getRequestTarget() == '/login' || $request->getRequestTarget() == '/registration') {
+        if($auth->isLoggedIn()) {
+            return $response->withRedirect('/');
+        }
     }
     $response = $next($request, $response);
 

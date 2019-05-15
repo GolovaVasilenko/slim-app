@@ -15,6 +15,5 @@ abstract class AbstractController
     {
         $this->container = $container;
         $this->view = $container->get('view');
-        //$this->view->setLayout("main.phtml");
     }
 }

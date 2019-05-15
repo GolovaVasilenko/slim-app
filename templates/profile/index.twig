@@ -1,2 +1,10 @@
-<h1>My Profile</h1>
-<p><?=$name;?></p>
+{% extends "main.twig" %}
+
+{% block content %}
+    <div class="uk-section">
+        <div class="uk-container uk-container-xsmall">
+            <h1>My Profile</h1>
+            <p>{{ name }}</p>
+        </div>
+    </div>
+{% endblock %}

@@ -1,29 +1,35 @@
+{% extends "main.twig" %}
 
-<?php if(!empty($login_error)):?>
-    <?php foreach($login_error as $message) :?>
-    <div class="uk-alert uk-alert-danger" >
-        <a class="uk-close uk-alert-close"></a>
-            <p> <?=$message;?> </p>
-    </div>
-    <?php endforeach;?>
-<?php endif;?>
+{% block content %}
 
-<div class="uk-container uk-container-xsmall">
-    <div class="panel-body">
-        <form action="/login" class="uk-form" method="post">
-            <div class="uk-margin">
-                <label for="InputEmail1">Email address</label>
-                <input type="email" name="email" class="uk-input" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            </div>
-            <div class="uk-margin">
-                <label for="InputPassword1">Password</label>
-                <input type="password" name="password" class="uk-input" id="InputPassword1" placeholder="Password">
-            </div>
-            <div class="uk-margin">
-                <label for="InputPassword1"><input class="uk-checkbox" value="1" name="remember" type="checkbox"> Remember me</label>
-            </div>
-            <button class="uk-button uk-button-default">Submit</button>
+{% if login_error %}
+    {% for message in login_error %}
+        <div class="uk-alert uk-alert-danger" >
+            <a class="uk-close uk-alert-close"></a>
+            <p> {{ message }} </p>
+        </div>
+    {% endfor %}
+{% endif%}
+<div class="uk-section">
+    <div class="uk-container uk-container-xsmall">
+        <div class="panel-body">
+            <h1>Login</h1>
+            <form action="/login" class="uk-form" method="post">
+                <div class="uk-margin">
+                    <label for="InputEmail1">Email address</label>
+                    <input type="email" name="email" class="uk-input" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="uk-margin">
+                    <label for="InputPassword1">Password</label>
+                    <input type="password" name="password" class="uk-input" id="InputPassword1" placeholder="Password">
+                </div>
+                <div class="uk-margin">
+                    <label for="InputPassword1"><input class="uk-checkbox" value="1" name="remember" type="checkbox"> Remember me</label>
+                </div>
+                <button class="uk-button uk-button-default">Submit</button>
 
-        </form>
+            </form>
+        </div>
     </div>
 </div>
+{% endblock %}
