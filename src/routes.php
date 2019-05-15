@@ -12,7 +12,7 @@ $app->get('/profile', '\App\Controllers\ProfileController:index')->add($auth)->s
 
 $app->get('/login', '\App\Controllers\AuthController:login')->add($is_auth)->setName('login.page');
 
-$app->get('/logout', '\App\Controllers\AuthController:login')->setName('logout');
+$app->get('/logout', '\App\Controllers\AuthController:logout')->setName('logout');
 
 $app->post('/login', '\App\Controllers\AuthController:authenticate');
 

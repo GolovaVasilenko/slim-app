@@ -20,7 +20,7 @@
                 <li><a href="{{ path_for("about.page") }}">About Us</a></li>
                 {% if(is_auth()) %}
                     <li><a href="{{ path_for("profile.index") }}">Profile</a></li>
-                    <li><a href="{{ path_for("logout") }}"></a></li>
+                    <li><a href="{{ path_for("logout") }}">Logout</a></li>
                 {% else %}
                     <li><a href="{{ path_for("login.page") }}">Sign in</a></li>
                     <li><a href="{{ path_for("register.page") }}">Sign up</a></li>

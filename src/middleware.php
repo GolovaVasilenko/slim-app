@@ -4,20 +4,23 @@
 // e.g: $app->add(new \Slim\Csrf\Guard);
 $auth = function($request, $response, $next) {
     $auth = $this->get('auth');
-    if(!$auth->isLoggedIn()) {
-        return $response->withRedirect('/login');
+
+    if($auth->isRemembered() || $auth->isLoggedIn()) {
+
+        $response = $next($request, $response);
+
+        return $response;
     }
 
-    $response = $next($request, $response);
+    return $response->withRedirect('/login');
 
-    return $response;
 };
 
 $is_auth = function($request, $response, $next) {
     $auth = $this->get('auth');
 
     if ($request->getRequestTarget() == '/login' || $request->getRequestTarget() == '/registration') {
-        if($auth->isLoggedIn()) {
+        if($auth->isRemembered() || $auth->isLoggedIn()) {
             return $response->withRedirect('/');
         }
     }
