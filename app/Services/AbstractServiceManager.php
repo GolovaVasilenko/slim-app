@@ -28,6 +28,19 @@ abstract class AbstractServiceManager implements DbServiceManagerInterface
     }
 
     /**
+     * @param $column
+     * @param $value
+     * @return mixed
+     */
+    public function findByColumn($column, $value)
+    {
+        $stmt = $this->c->get('db')->prepare("SELECT * FROM " . static::getTable() . " WHERE " . $column . "=:val");
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, static::getClass());
+        $stmt->execute(['val' => $value]);
+        return $stmt->fetch();
+    }
+
+    /**
      * @param $id
      * @return mixed
      */

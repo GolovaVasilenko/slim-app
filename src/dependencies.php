@@ -3,11 +3,6 @@
 
 $container = $app->getContainer();
 
-// view renderer
-/*$container['view'] = function ($c) {
-    $settings = $c->get('settings')['renderer'];
-    return new Slim\Views\PhpRenderer($settings['template_path']);
-};*/
 // Register component on container
 $container['view'] = function ($container) {
     $settings = $container->get('settings')['renderer'];
@@ -43,6 +38,7 @@ $container['db'] = function ($c) {
     $pdo = new PDO($db['dsn'] . $db['dbname'], $db['user'], $db['pass']);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    $pdo->setAttribute(PDO::MYSQL_ATTR_INIT_COMMAND, "SET NAMES utf8");
     return $pdo;
 };
 
