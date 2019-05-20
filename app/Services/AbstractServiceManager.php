@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Services;
+namespace App\Services;
 
 use App\Services\DbServiceManagerInterface;
 use Psr\Container\ContainerInterface;

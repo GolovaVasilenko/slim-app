@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\Services;
+namespace App\Services;
 
 
 interface DbServiceManagerInterface

@@ -28,3 +28,16 @@ $is_auth = function($request, $response, $next) {
 
     return $response;
 };
+
+$admin = function($request, $response, $next) {
+    $auth = $this->get('auth');
+
+    if($auth->isRemembered() || $auth->isLoggedIn()) {
+        if ($auth->hasRole(\Delight\Auth\Role::ADMIN)) {
+            $response = $next($request, $response);
+
+            return $response;
+        }
+    }
+    return $response->withRedirect('/login');
+};

@@ -22,14 +22,10 @@ $app->post('/registration', '\App\Controllers\RegistrationController:registratio
 
 $app->group('/admin', function() {
     $this->get('', '\App\Controllers\AdminController:index')->setName('admin');
-});
 
-/*$app->group('/users/{id:[0-9]+}', function () {
-    $this->map(['GET', 'DELETE', 'PATCH', 'PUT'], '', function ($request, $response, $args) {
-        // Find, delete, patch or replace user identified by $args['id']
-    })->setName('user');
-    $this->get('/reset-password', function ($request, $response, $args) {
-        // Route for /users/{id:[0-9]+}/reset-password
-        // Reset the password for user identified by $args['id']
-    })->setName('user-password-reset');
-});*/
+    $this->get('/users', '\App\Controllers\UserController:index')->setName('user.list');
+
+    $this->get('/user/add', '\App\Controllers\UserController:add')->setName('user.add');
+
+    $this->post('/user/store', '\App\Controllers\UserController:store')->setName('user.store');
+});

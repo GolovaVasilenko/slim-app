@@ -1,0 +1,28 @@
+{% extends "admin.twig" %}
+
+{% block content %}
+    <h3 class="uk-card-title">Users List</h3>
+    <table class="uk-table uk-table-striped">
+        <thead>
+        <tr>
+            <th>#ID</th>
+            <th>Login</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Registered</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>role</td>
+            <td>registered</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
