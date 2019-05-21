@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="563308c4-32c5-4dfb-a69c-4e481c35e0ae" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/AbstractServiceManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/AbstractServiceManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/index.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/index.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/users/_form.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/users/_form.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/users/add.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/users/add.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin/users/edit.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/users/edit.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/users/index.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/users/index.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,20 +26,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Controllers/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+            <state relative-caret-position="228">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="edit.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/admin/users/edit.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+            <state relative-caret-position="152">
+              <caret line="8" column="66" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -56,7 +47,7 @@
       <file leaf-file-name="admin.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/admin.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
+            <state relative-caret-position="760">
               <caret line="40" column="72" selection-start-line="40" selection-start-column="72" selection-end-line="40" selection-end-column="72" />
             </state>
           </provider>
@@ -130,9 +121,9 @@
         <option value="$PROJECT_DIR$/app/Controllers/AdminController.php" />
         <option value="$PROJECT_DIR$/templates/admin/users/add.twig" />
         <option value="$PROJECT_DIR$/src/routes.php" />
-        <option value="$PROJECT_DIR$/templates/admin/users/edit.twig" />
         <option value="$PROJECT_DIR$/app/Services/AbstractServiceManager.php" />
         <option value="$PROJECT_DIR$/app/Controllers/UserController.php" />
+        <option value="$PROJECT_DIR$/templates/admin/users/edit.twig" />
       </list>
     </option>
   </component>
@@ -352,12 +343,12 @@
       <workItem from="1558098722620" duration="1174000" />
       <workItem from="1558337104922" duration="6034000" />
       <workItem from="1558350774055" duration="6291000" />
-      <workItem from="1558428962095" duration="3280000" />
+      <workItem from="1558428962095" duration="3786000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106315000" />
+    <option name="totallyTimeSpent" value="106821000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-2" width="1920" height="1082" extended-state="6" />
@@ -368,9 +359,9 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.25925925" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.25925925" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1625" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1625" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -692,24 +683,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="40" column="72" selection-start-line="40" selection-start-column="72" selection-end-line="40" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/admin/users/index.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" selection-start-line="2" selection-end-line="10" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="31" column="71" selection-start-line="31" selection-start-column="71" selection-end-line="31" selection-end-column="71" />
         </state>
       </provider>
     </entry>
@@ -720,17 +697,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/users/edit.twig">
+    <entry file="file://$PROJECT_DIR$/src/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        <state relative-caret-position="497">
+          <caret line="31" column="71" selection-start-line="31" selection-start-column="71" selection-end-line="31" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="40" column="72" selection-start-line="40" selection-start-column="72" selection-end-line="40" selection-end-column="72" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+        <state relative-caret-position="228">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/users/edit.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="66" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="66" />
         </state>
       </provider>
     </entry>

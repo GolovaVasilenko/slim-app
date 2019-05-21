@@ -14,7 +14,7 @@ class UserController extends AdminController
 
         $users = $sm->all();
 
-        return $this->view->render($response, 'admin/users/index.twig', ['users' => $users, $messages]);
+        return $this->view->render($response, 'admin/users/index.twig', ['users' => $users, 'messages' => $messages]);
     }
 
     public function add($request, $response)
@@ -38,7 +38,7 @@ class UserController extends AdminController
         $id = $request->getAttribute("id");
         $sm = new UserServiceManager($this->container);
         $user = $sm->find($id);
-        return $this->view->render($response, 'admin/users/edit.twig', ['user' => $user, $messages]);
+        return $this->view->render($response, 'admin/users/edit.twig', ['user' => $user, 'messages' => $messages]);
     }
 
     public function update($request, $response)
