@@ -20,7 +20,7 @@ $app->get('/registration', '\App\Controllers\RegistrationController:index')->add
 
 $app->post('/registration', '\App\Controllers\RegistrationController:registration');
 
-$app->group('/admin', function() {
+$app->group('/admin', function() use( $admin ) {
     $this->get('', '\App\Controllers\AdminController:index')->setName('admin');
 
     $this->get('/users', '\App\Controllers\UserController:index')->setName('user.list');
@@ -34,4 +34,4 @@ $app->group('/admin', function() {
     $this->get('/user/edit/{id:[0-9]+}', '\App\Controllers\UserController:edit')->setName('user.edit');
 
     $this->get('/user/delete/{id:[0-9]+}', '\App\Controllers\UserController:delete')->setName('user.delete');
-});
+})->add($admin) ;

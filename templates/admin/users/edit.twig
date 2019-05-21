@@ -11,6 +11,7 @@
 {% endblock %}
 
 {% block content %}
+    <h3>Update User {{ user.username | escape }}</h3>
     <form action="{{ path_for('user.update') }}" method="post">
         <div class="uk-margin">
             <label for="InputName">Login</label>
