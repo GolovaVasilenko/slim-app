@@ -1,7 +1,19 @@
 {% extends "admin.twig" %}
 
+{% block alert %}
+    {% if (success.0) %}
+    <div class="uk-alert-success" uk-alert>{{ success.0 }}</div>
+    {% endif %}
+
+    {% if (errors.0) %}
+        <div class="uk-alert-danger" uk-alert>{{ errors.0 }}</div>
+    {% endif %}
+{% endblock %}
+
 {% block content %}
+    <a href="{{ path_for('user.add') }}" class="uk-button uk-button-primary uk-align-right">Add User</a>
     <h3 class="uk-card-title">Users List</h3>
+
     <table class="uk-table uk-table-striped">
         <thead>
         <tr>
@@ -10,6 +22,7 @@
             <th>Email</th>
             <th>Role</th>
             <th>Registered</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -18,8 +31,12 @@
             <td>{{ user.id }}</td>
             <td>{{ user.username }}</td>
             <td>{{ user.email }}</td>
-            <td>role</td>
-            <td>registered</td>
+            <td>{{ user.roles_mask }}</td>
+            <td>{{ user.registered | date }}</td>
+            <td>
+                <a href="{{ path_for('user.edit', {'id' : user.id}) }}"><span uk-icon="icon: file-edit"></span></a>&nbsp;
+                <a href="{{ path_for('user.delete', {'id' : user.id}) }}"><span uk-icon="icon: trash"></span></a>
+            </td>
         </tr>
         {% endfor %}
         </tbody>

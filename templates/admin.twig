@@ -26,12 +26,23 @@
             </div>
         </nav>
     </header>
+    <div class="alert-wrapper">
+        {% block alert %}{% endblock %}
+    </div>
     <div class="uk-section admin-content-section">
         <div class="uk-container uk-container-expand">
             <div class="uk-grid">
                 <div class="uk-width-1-4 sidebar">
                     <div class="uk-card uk-card-body uk-card-primary">
-                    Sidebar
+                        <ul class="uk-nav">
+                            <li class="uk-nav-divider"></li>
+                            <li>
+                                <a href="{{ path_for('user.list') }}">
+                                    <span uk-icon="icon: users"></span> Users
+                                </a>
+                            </li>
+                            <li class="uk-nav-divider"></li>
+                        </ul>
                     </div>
                 </div>
                 <div class="uk-width-3-4">

@@ -70,7 +70,7 @@ abstract class AbstractServiceManager implements DbServiceManagerInterface
 
         $sql = "UPDATE " . static::getTable() . " SET " . implode(',', $prepare) . " WHERE id=:id";
         $stmt = $this->c->get('db')->prepare($sql);
-        return $stmt->execute($data);
+        return $stmt->execute($res);
     }
 
     /**

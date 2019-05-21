@@ -28,4 +28,10 @@ $app->group('/admin', function() {
     $this->get('/user/add', '\App\Controllers\UserController:add')->setName('user.add');
 
     $this->post('/user/store', '\App\Controllers\UserController:store')->setName('user.store');
+
+    $this->post('/user/update', '\App\Controllers\UserController:update')->setName('user.update');
+
+    $this->get('/user/edit/{id:[0-9]+}', '\App\Controllers\UserController:edit')->setName('user.edit');
+
+    $this->get('/user/delete/{id:[0-9]+}', '\App\Controllers\UserController:delete')->setName('user.delete');
 });
