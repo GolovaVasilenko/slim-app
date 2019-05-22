@@ -34,4 +34,18 @@ $app->group('/admin', function() use( $admin ) {
     $this->get('/user/edit/{id:[0-9]+}', '\App\Controllers\UserController:edit')->setName('user.edit');
 
     $this->get('/user/delete/{id:[0-9]+}', '\App\Controllers\UserController:delete')->setName('user.delete');
-})->add($admin) ;
+
+
+    $this->get('/pages', '\App\Controllers\PageController:pagesList')->setName('pages.list');
+
+    $this->post('/page/store', '\App\Controllers\PageController:store')->setName('page.store');
+
+    $this->post('/page/update', '\App\Controllers\PageController:update')->setName('page.update');
+
+    $this->get('/page/edit/{id:[0-9]+}', '\App\Controllers\PageController:edit')->setName('page.edit');
+
+    $this->get('/page/delete/{id:[0-9]+}', '\App\Controllers\PageController:delete')->setName('page.delete');
+
+    $this->get('/page/add', '\App\Controllers\PageController:add')->setName('page.add');
+
+})->add($admin);

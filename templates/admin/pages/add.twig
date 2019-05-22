@@ -1,0 +1,27 @@
+{% extends "admin.twig" %}
+
+{% block content %}
+    <h3>Add Page</h3>
+    <form action="{{ path_for('page.store') }}" method="post">
+        <div class="uk-margin">
+            <label for="InputTitle">Title</label>
+            <input type="text" name="title" class="uk-input slug-title" value="" id="InputTitle" aria-describedby="titleHelp" placeholder="Title">
+        </div>
+        <div class="uk-margin">
+            <label for="InputSlug">Slug</label>
+            <input type="text" name="slug" class="uk-input slug-res" value="" id="InputSlug" aria-describedby="slugHelp" placeholder="Slug">
+        </div>
+        <div class="uk-margin">
+            <label for="editor">Content</label>
+            <textarea id="editor" name="body" class="uk-textarea" rows="8"></textarea>
+        </div>
+        <button class="uk-button uk-button-default">Add Page</button>
+    </form>
+{% endblock %}
+{% block scripts %}
+    {{ parent() }}
+    <script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('editor');
+    </script>
+{% endblock %}
