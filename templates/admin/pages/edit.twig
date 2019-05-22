@@ -1,0 +1,29 @@
+{% extends "admin.twig" %}
+
+{% block content %}
+    <h3>Edit Page {{ page.title }}</h3>
+    <form action="{{ path_for('page.update') }}" method="post">
+        <div class="uk-margin">
+            <label for="InputTitle">Title</label>
+            <input type="text" name="title" class="uk-input slug-title" value="{{ page.title }}" id="InputTitle" aria-describedby="titleHelp" placeholder="Title">
+        </div>
+        <div class="uk-margin">
+            <label for="InputSlug">Slug</label>
+            <input type="text" name="slug" class="uk-input slug-res" value="{{ page.slug }}" id="InputSlug" aria-describedby="slugHelp" placeholder="Slug">
+        </div>
+        <div class="uk-margin">
+            <label for="editor">Content</label>
+            <textarea id="editor" name="body" class="uk-textarea" rows="8">{{ page.body }}</textarea>
+        </div>
+        <input type="hidden" name="id" value="{{ page.id }}" />
+        <button class="uk-button uk-button-primary">Update Page</button>
+    </form>
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+    <script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('editor');
+    </script>
+{% endblock %}
