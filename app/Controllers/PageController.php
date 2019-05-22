@@ -73,11 +73,21 @@ class PageController extends AbstractController
 
     public function update(Request $request, Response $response)
     {
+        $data = $request->getParsedBody();
+        $sm = new PageServiceManager($this->container);
+        $sm->update($data);
 
+        $this->container->get('flash')->addMessage('success', 'Page is successful updated');
+        return $response->withRedirect('/admin/page/edit/'. (int) $data['id']);
     }
 
     public function delete(Request $request, Response $response)
     {
+        $id = $request->getAttribute('id');
+        $sm = new PageServiceManager($this->container);
+        $sm->remove($id);
 
+        $this->container->get('flash')->addMessage('success', 'Page is successful deleted');
+        return $response->withRedirect('/admin/pages');
     }
 }

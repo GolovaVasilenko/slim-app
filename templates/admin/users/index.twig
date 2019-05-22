@@ -1,13 +1,7 @@
 {% extends "admin.twig" %}
 
 {% block alert %}
-    {% if (messages.success.0) %}
-    <div class="uk-alert-success" uk-alert>{{ messages.success.0 }}</div>
-    {% endif %}
-
-    {% if (messages.errors.0) %}
-        <div class="uk-alert-danger" uk-alert>{{ messages.errors.0 }}</div>
-    {% endif %}
+    {% include 'alerts.twig' %}
 {% endblock %}
 
 {% block content %}

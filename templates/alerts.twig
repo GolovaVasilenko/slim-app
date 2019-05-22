@@ -1,0 +1,15 @@
+{% if (messages.success) %}
+    <div class="uk-alert-success" uk-alert>
+        {% for success in messages.success %}
+        <p>{{ success }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% if (messages.errors) %}
+    <div class="uk-alert-danger" uk-alert>
+        {% for error in messages.errors %}
+            <p>{{ error }}</p>
+        {% endfor %}
+    </div>
+{% endif %}

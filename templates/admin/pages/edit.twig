@@ -1,5 +1,9 @@
 {% extends "admin.twig" %}
 
+{% block alert %}
+    {% include 'alerts.twig' %}
+{% endblock %}
+
 {% block content %}
     <h3>Edit Page {{ page.title }}</h3>
     <form action="{{ path_for('page.update') }}" method="post">
