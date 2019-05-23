@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="563308c4-32c5-4dfb-a69c-4e481c35e0ae" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/slim-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/slim-app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/pages/add.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/pages/add.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/pages/edit.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/pages/edit.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/pages/index.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/pages/index.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/users/add.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/users/add.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/users/edit.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/users/edit.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/users/index.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/users/index.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Controllers/MediaController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -51,11 +40,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MediaController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Controllers/MediaController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="12" column="61" lean-forward="true" selection-start-line="12" selection-start-column="61" selection-end-line="12" selection-end-column="61" />
+              <folding>
+                <element signature="e#36#57#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/admin.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
-              <caret line="46" column="62" selection-start-line="46" selection-start-column="62" selection-end-line="46" selection-end-column="62" />
+              <caret line="46" column="77" lean-forward="true" selection-start-line="46" selection-start-column="77" selection-end-line="46" selection-end-column="77" />
             </state>
           </provider>
         </entry>
@@ -68,7 +69,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/settings.php" />
         <option value="$PROJECT_DIR$/templates/page.phtml" />
         <option value="$PROJECT_DIR$/src/app/controllers/AbstractController.php" />
         <option value="$PROJECT_DIR$/src/app/controllers/PageController.php" />
@@ -119,6 +119,7 @@
         <option value="$PROJECT_DIR$/templates/admin/pages/edit.twig" />
         <option value="$PROJECT_DIR$/templates/admin/users/edit.twig" />
         <option value="$PROJECT_DIR$/templates/admin.twig" />
+        <option value="$PROJECT_DIR$/app/Controllers/MediaController.php" />
       </list>
     </option>
   </component>
@@ -216,6 +217,12 @@
             <path>
               <item name="slim-app" type="b2602c69:ProjectViewProjectNode" />
               <item name="slim-app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="slim-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="slim-app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -223,20 +230,6 @@
               <item name="slim-app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="slim-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="slim-app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="slim-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="slim-app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="users" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -312,16 +305,15 @@
       <workItem from="1558428962095" duration="15927000" />
       <workItem from="1558508638101" duration="1762000" />
       <workItem from="1558511561094" duration="7158000" />
-      <workItem from="1558595234372" duration="1483000" />
+      <workItem from="1558595234372" duration="2100000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129365000" />
+    <option name="totallyTimeSpent" value="129982000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-2" width="1920" height="1082" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -357,13 +349,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/slim/php-view/src/PhpRenderer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
@@ -689,6 +674,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="46" column="77" lean-forward="true" selection-start-line="46" selection-start-column="77" selection-end-line="46" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Controllers/PageController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="307">
@@ -699,10 +691,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin.twig">
+    <entry file="file://$PROJECT_DIR$/app/Controllers/MediaController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="46" column="62" selection-start-line="46" selection-start-column="62" selection-end-line="46" selection-end-column="62" />
+        <state relative-caret-position="228">
+          <caret line="12" column="61" lean-forward="true" selection-start-line="12" selection-start-column="61" selection-end-line="12" selection-end-column="61" />
+          <folding>
+            <element signature="e#36#57#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
