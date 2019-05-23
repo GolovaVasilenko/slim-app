@@ -1,5 +1,7 @@
 {% extends "admin.twig" %}
 
+{% block metaTitle %}Add new User{% endblock %}
+
 {% block content %}
     <h3>Add User</h3>
 <form action="{{ path_for('user.store') }}" method="post">
