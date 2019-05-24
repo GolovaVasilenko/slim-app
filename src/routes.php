@@ -23,6 +23,8 @@ $app->post('/registration', '\App\Controllers\RegistrationController:registratio
 $app->group('/admin', function() use( $admin ) {
     $this->get('', '\App\Controllers\AdminController:index')->setName('admin');
 
+    /* Users Admin */
+
     $this->get('/users', '\App\Controllers\UserController:index')->setName('user.list');
 
     $this->get('/user/add', '\App\Controllers\UserController:add')->setName('user.add');
@@ -35,7 +37,7 @@ $app->group('/admin', function() use( $admin ) {
 
     $this->get('/user/delete/{id:[0-9]+}', '\App\Controllers\UserController:delete')->setName('user.delete');
 
-
+    /* Pages Admin */
     $this->get('/pages', '\App\Controllers\PageController:pagesList')->setName('pages.list');
 
     $this->post('/page/store', '\App\Controllers\PageController:store')->setName('page.store');
@@ -47,5 +49,16 @@ $app->group('/admin', function() use( $admin ) {
     $this->get('/page/delete/{id:[0-9]+}', '\App\Controllers\PageController:delete')->setName('page.delete');
 
     $this->get('/page/add', '\App\Controllers\PageController:add')->setName('page.add');
+
+    /* Media Admin */
+    $this->get('/media', '\App\Controllers\MediaController:index')->setName('media.list');
+
+    $this->post('/media/store', '\App\Controllers\MediaController:store')->setName('media.store');
+
+    $this->post('/media/update', '\App\Controllers\MediaController:update')->setName('media.update');
+
+    $this->get('/media/edit/{id:[0-9]+}', '\App\Controllers\MediaController:edit')->setName('media.edit');
+
+    $this->get('/media/delete/{id:[0-9]+}', '\App\Controllers\MediaController:delete')->setName('media.delete');
 
 })->add($admin);

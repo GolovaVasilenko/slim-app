@@ -1,0 +1,49 @@
+{% extends 'admin.twig' %}
+
+
+{% block metaTitle %}Edit page {{ page.title }}{% endblock %}
+
+{% block alert %}
+    {% include 'alerts.twig' %}
+{% endblock %}
+
+{% block content %}
+    <div class="uk-align-right">
+        <div class="uk-margin" uk-margin>
+            <form action="{{ path_for('media.store') }}" method="post" enctype="multipart/form-data">
+            <div uk-form-custom="target: true">
+                <input type="file" name="media">
+                <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled>
+            </div>
+            <button class="uk-button uk-button-default">Submit</button>
+            </form>
+        </div>
+    </div>
+    <h3>Media files</h3>
+    {% if(items) %}
+    <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
+        {% for item in items %}
+        <div>
+            <div class="uk-card uk-card-default">
+                <div class="uk-card-media-top">
+                    <img src="/uploads/{{ item.url }}" alt="">
+                </div>
+                <div class="uk-card-body">
+
+                    <p>
+                        <a href="{{ path_for('media.edit', {'id' : item.id}) }}"><span uk-icon="icon: file-edit"></span></a>&nbsp;
+                        <a href="{{ path_for('media.delete', {'id' : item.id}) }}"><span uk-icon="icon: trash"></span></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+        <div>
+            <div class="uk-tile uk-tile-muted">
+                <p class="uk-h2">Not Files</p>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

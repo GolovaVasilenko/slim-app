@@ -22,5 +22,8 @@ return [
             'user' => 'root',
             'pass' => 'toor',
         ],
+        'media' => [
+            'uploaded' => __DIR__ . '/../public/uploads'
+        ],
     ],
 ];
