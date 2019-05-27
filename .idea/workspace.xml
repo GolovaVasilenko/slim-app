@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="563308c4-32c5-4dfb-a69c-4e481c35e0ae" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/Media.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/MediaServiceManager.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/info.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/media/index.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Controllers/MediaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/MediaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/settings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/cd12120d1327fe76.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/media/index.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/media/index.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,14 +43,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MediaController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MediaController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controllers/MediaController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="36" column="55" lean-forward="true" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
+            <state relative-caret-position="478">
+              <caret line="52" column="55" lean-forward="true" selection-start-line="52" selection-start-column="55" selection-end-line="52" selection-end-column="55" />
               <folding>
                 <element signature="e#36#73#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/admin/media/index.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -65,15 +69,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="202">
               <caret line="1020" column="20" lean-forward="true" selection-start-line="1020" selection-start-column="20" selection-end-line="1020" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/admin/media/index.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -152,9 +147,9 @@
         <option value="$PROJECT_DIR$/src/routes.php" />
         <option value="$PROJECT_DIR$/templates/admin.twig" />
         <option value="$PROJECT_DIR$/public/info.php" />
-        <option value="$PROJECT_DIR$/app/Controllers/MediaController.php" />
         <option value="$PROJECT_DIR$/src/settings.php" />
         <option value="$PROJECT_DIR$/templates/admin/media/index.twig" />
+        <option value="$PROJECT_DIR$/app/Controllers/MediaController.php" />
       </list>
     </option>
   </component>
@@ -252,24 +247,6 @@
             <path>
               <item name="slim-app" type="b2602c69:ProjectViewProjectNode" />
               <item name="slim-app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="slim-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="slim-app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Models" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="slim-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="slim-app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Services" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="slim-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="slim-app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -277,36 +254,6 @@
               <item name="slim-app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="uploads" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="slim-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="slim-app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="slim-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="slim-app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="slim-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="slim-app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="slim-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="slim-app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="media" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="slim-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="slim-app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -383,16 +330,15 @@
       <workItem from="1558508638101" duration="1762000" />
       <workItem from="1558511561094" duration="7158000" />
       <workItem from="1558595234372" duration="2926000" />
-      <workItem from="1558683616262" duration="12877000" />
+      <workItem from="1558683616262" duration="14976000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143685000" />
+    <option name="totallyTimeSpent" value="145784000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-2" width="1920" height="1082" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -761,16 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controllers/MediaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="36" column="55" lean-forward="true" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
-          <folding>
-            <element signature="e#36#73#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/admin/pages/edit.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="79">
@@ -787,8 +723,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/admin/media/index.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+        <state relative-caret-position="38">
+          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controllers/MediaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="52" column="55" lean-forward="true" selection-start-line="52" selection-start-column="55" selection-end-line="52" selection-end-column="55" />
+          <folding>
+            <element signature="e#36#73#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

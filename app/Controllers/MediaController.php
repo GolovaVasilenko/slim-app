@@ -38,8 +38,24 @@ class MediaController extends AdminController
 
     }
 
+    public function delete(Request $request, Response $response)
+    {
+        $id = $request->getAttribute('id');
+        $sm = new MediaServiceManager($this->container);
+        $image = $sm->find($id);
+        if($this->removeImage($image->url)) {
+            $sm->remove($id);
+            $this->container->get('flash')->addMessage('success', 'Image is successful deleted');
+            return $response->withRedirect('/admin/media');
+        }
 
-    function moveUploadedFile($directory, UploadedFile $uploadedFile)
+        $this->container->get('flash')->addMessage('errors', 'Image is not deleted ERROR');
+        return $response->withRedirect('/admin/media');
+
+    }
+
+
+    protected function moveUploadedFile($directory, UploadedFile $uploadedFile)
     {
         $extension = pathinfo($uploadedFile->getClientFilename(), PATHINFO_EXTENSION);
         $basename = bin2hex(random_bytes(8)); // see http://php.net/manual/en/function.random-bytes.php
@@ -48,5 +64,15 @@ class MediaController extends AdminController
         $uploadedFile->moveTo($directory . DIRECTORY_SEPARATOR . $filename);
 
         return $filename;
+    }
+
+    protected function removeImage($filename)
+    {
+        $file = $this->container->get('settings')['media']['uploaded'] . '/' . $filename;
+        if (file_exists($file)) {
+            unlink($file);
+            return true;
+        }
+        return false;
     }
 }
