@@ -20,7 +20,7 @@ $app->get('/registration', '\App\Controllers\RegistrationController:index')->add
 
 $app->post('/registration', '\App\Controllers\RegistrationController:registration');
 
-$app->group('/admin', function() use( $admin ) {
+$app->group('/admin-panel', function() use( $admin ) {
     $this->get('', '\App\Controllers\AdminController:index')->setName('admin');
 
     /* Users Admin */

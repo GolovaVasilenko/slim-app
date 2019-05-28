@@ -2,13 +2,18 @@
 
 namespace App\Controllers;
 
-
 use App\Services\PageServiceManager;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
 class PageController extends AbstractController
 {
+    /**
+     * @param $request
+     * @param $response
+     * @param $args
+     * @return mixed
+     */
     public function index($request, $response, $args)
     {
         $sm = new PageServiceManager($this->container);
@@ -19,6 +24,11 @@ class PageController extends AbstractController
         return $this->view->render($response, 'pages/page.twig', $args);
     }
 
+    /**
+     * @param $request
+     * @param $response
+     * @return mixed
+     */
     public function show($request, $response)
     {
         $slug = trim($request->getRequestTarget(), "/");
@@ -29,6 +39,11 @@ class PageController extends AbstractController
         return $this->view->render($response, 'pages/page.twig', $args);
     }
 
+    /**
+     * @param $request
+     * @param $response
+     * @return mixed
+     */
     public function pagesList($request, $response)
     {
         $messages = $this->container->get('flash')->getMessages();
@@ -47,6 +62,11 @@ class PageController extends AbstractController
         return $this->view->render($response, 'admin/pages/add.twig', ['messages' => $messages]);
     }
 
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @return static
+     */
     public function store(Request $request, Response $response)
     {
         $data = $request->getParsedBody();
@@ -62,6 +82,11 @@ class PageController extends AbstractController
         return $response->withRedirect('/admin/page/add');
     }
 
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @return mixed
+     */
     public function edit(Request $request, Response $response)
     {
         $messages = $this->container->get('flash')->getMessages();
@@ -71,6 +96,11 @@ class PageController extends AbstractController
         return $this->view->render($response, 'admin/pages/edit.twig', ['page' => $page,'messages' => $messages]);
     }
 
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @return static
+     */
     public function update(Request $request, Response $response)
     {
         $data = $request->getParsedBody();
@@ -81,6 +111,11 @@ class PageController extends AbstractController
         return $response->withRedirect('/admin/page/edit/'. (int) $data['id']);
     }
 
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @return static
+     */
     public function delete(Request $request, Response $response)
     {
         $id = $request->getAttribute('id');

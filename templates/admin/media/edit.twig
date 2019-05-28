@@ -1,0 +1,38 @@
+{% extends 'admin.twig' %}
+
+{% block metaTitle %}All Media files {{ page.title }}{% endblock %}
+
+{% block alert %}
+    {% include 'alerts.twig' %}
+{% endblock %}
+
+{% block content %}
+    <div class="uk-section">
+        <div class="uk-container">
+            <div class="uk-card uk-card-default uk-card-large uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                <div class="uk-card-media-left uk-cover-container">
+                    <img src="/uploads/{{ item.url }}" alt="" uk-cover>
+                    <canvas width="600" height="400"></canvas>
+                </div>
+                <div>
+                    <div class="uk-card-body">
+                        <form action="{{ path_for('media.update') }}" method="post" enctype="multipart/form-data">
+                            <div class="uk-margin">
+                            <input class="uk-input" type="text" name="title" value="{{ item.title }}" placeholder="Title"/>
+                            </div>
+                            <div class="uk-margin">
+                                <input class="uk-input" type="text" name="alt" value="{{ item.alt }}" placeholder="Alt"/>
+                            </div>
+                            <div class="uk-margin">
+                                <textarea class="uk-textarea" name="description" placeholder="Description">{{ item.description }}</textarea>
+                            </div>
+                            <input type="hidden" name="id" value="{{ item.id }}"/>
+                            <button class="uk-button uk-button-primary" type="submit">Update data</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

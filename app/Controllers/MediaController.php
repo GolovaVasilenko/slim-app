@@ -12,9 +12,11 @@ class MediaController extends AdminController
 {
     public function index(Request $request, Response $response)
     {
+        $messages = $this->container->get('flash')->getMessages();
+
         $sm = new MediaServiceManager($this->container);
         $items = $sm->all();
-        return $this->view->render($response, 'admin/media/index.twig', ['items' => $items]);
+        return $this->view->render($response, 'admin/media/index.twig', ['items' => $items, 'messages' => $messages]);
     }
 
     public function store(Request $request, Response $response)
@@ -36,6 +38,33 @@ class MediaController extends AdminController
         $this->container->get('flash')->addMessage('errors', 'Image is not uploaded ERROR');
         return $response->withRedirect('/admin/media');
 
+    }
+
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @return mixed
+     */
+    public function edit(Request $request, Response $response)
+    {
+        $messages = $this->container->get('flash')->getMessages();
+
+        $id = $request->getAttribute('id');
+        $sm = new MediaServiceManager($this->container);
+        $item = $sm->find($id);
+
+        return $this->view->render($response, 'admin/media/edit.twig', ['item' => $item, 'messages' => $messages]);
+    }
+
+
+    public function update(Request $request, Response $response)
+    {
+        $data = $request->getParsedBody();
+        $sm = new MediaServiceManager($this->container);
+        $sm->update($data);
+
+        $this->container->get('flash')->addMessage('success', 'Image is successful updated');
+        return $response->withRedirect('/admin/media/edit/' . $data['id']);
     }
 
     public function delete(Request $request, Response $response)

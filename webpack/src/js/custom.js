@@ -1,5 +1,5 @@
 var slugify = require('slugify');
-import $ from 'jquery';
+//import $ from 'jquery';
 
 $(document).ready(function($) {
 
