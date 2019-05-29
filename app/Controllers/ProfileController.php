@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Controllers\AuthController;
+use App\Services\UserServiceManager;
 
 class ProfileController extends AbstractController
 {
@@ -10,9 +10,14 @@ class ProfileController extends AbstractController
     {
         $auth = $this->container->get('auth');
 
+        $sm = new UserServiceManager($this->container);
+
+        $user = $sm->find($auth->id());
+
         return $this->view->render($response, 'profile/index.twig', [
-            'name'  => $auth->getUsername(),
-            'email' => $auth->getEmail(),
+            'name'  => $user->username,
+            'email' => $user->email,
+            'avatar' => $user->avatar,
             'ip'    => $auth->getIpAddress(),
         ]);
     }

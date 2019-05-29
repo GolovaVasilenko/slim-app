@@ -4,6 +4,7 @@
     <div class="uk-section">
         <div class="uk-container uk-container-xsmall">
             <h1>My Profile</h1>
+            <p><img id="avatar" width="150" class="uk-border-circle" src="{{ avatar | default('/backend/images/no-avatar.png') }}" /></p>
             <p>Login: {{ name }}</p>
             <p>IP: {{ ip }}</p>
             <p>Email: {{ email }}</p>
