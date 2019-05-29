@@ -8,9 +8,12 @@ $container['db'] = function ($c) {
     $db = $c->get('settings')['db'];
     $pdo = new PDO($db['dsn'] . $db['dbname'] . ";charset=utf8", $db['user'], $db['pass']);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    //$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    //$pdo->setAttribute(PDO::MYSQL_ATTR_INIT_COMMAND, "SET NAMES utf8");
+
     return $pdo;
+};
+
+$container['session'] = function ($c) {
+    return new \SlimSession\Helper;
 };
 
 // Auth Container
@@ -29,7 +32,7 @@ $container['view'] = function ($container) {
     // Instantiate and add Slim specific extension
     $basePath = rtrim(str_ireplace('index.php', '', $container['request']->getUri()->getBasePath()), '/');
     $view->addExtension(new Slim\Views\TwigExtension($container['router'], $basePath));
-    $view->addExtension(new \App\Extensions\View\AuthTwigExtensions($container['router'], $basePath, $container->get('auth')));
+    $view->addExtension(new \App\Extensions\View\AuthTwigExtensions($container['router'], $basePath, $container));
     return $view;
 };
 

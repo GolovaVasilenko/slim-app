@@ -6,24 +6,37 @@
     {% include 'alerts.twig' %}
 {% endblock %}
 
+{% block labelPage %}<span uk-icon="icon: file-text; ratio: 2"></span> Pages{% endblock %}
+
+{% block adminHeader %} Edit Page {{ page.title }} {% endblock %}
+
+{% block labelPathName %}Pages{% endblock %}
+
 {% block content %}
-    <h3>Edit Page {{ page.title }}</h3>
-    <form action="{{ path_for('page.update') }}" method="post">
-        <div class="uk-margin">
-            <label for="InputTitle">Title</label>
-            <input type="text" name="title" class="uk-input slug-title" value="{{ page.title }}" id="InputTitle" aria-describedby="titleHelp" placeholder="Title">
+<div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@l">
+    <div>
+        <div class="uk-card uk-card-default">
+            <div class="uk-card-body">
+                <form action="{{ path_for('page.update') }}" method="post">
+                    <div class="uk-margin">
+                        <label for="InputTitle">Title</label>
+                        <input type="text" name="title" class="uk-input slug-title" value="{{ page.title }}" id="InputTitle" aria-describedby="titleHelp" placeholder="Title">
+                    </div>
+                    <div class="uk-margin">
+                        <label for="InputSlug">Slug</label>
+                        <input type="text" name="slug" class="uk-input slug-res" value="{{ page.slug }}" id="InputSlug" aria-describedby="slugHelp" placeholder="Slug">
+                    </div>
+                    <div class="uk-margin">
+                        <label for="editor">Content</label>
+                        <textarea id="editor" name="body" class="uk-textarea" rows="8">{{ page.body }}</textarea>
+                    </div>
+                    <input type="hidden" name="id" value="{{ page.id }}" />
+                    <button class="uk-button uk-button-primary">Update Page</button>
+                </form>
+            </div>
         </div>
-        <div class="uk-margin">
-            <label for="InputSlug">Slug</label>
-            <input type="text" name="slug" class="uk-input slug-res" value="{{ page.slug }}" id="InputSlug" aria-describedby="slugHelp" placeholder="Slug">
-        </div>
-        <div class="uk-margin">
-            <label for="editor">Content</label>
-            <textarea id="editor" name="body" class="uk-textarea" rows="8">{{ page.body }}</textarea>
-        </div>
-        <input type="hidden" name="id" value="{{ page.id }}" />
-        <button class="uk-button uk-button-primary">Update Page</button>
-    </form>
+    </div>
+</div>
 {% endblock %}
 
 {% block scripts %}

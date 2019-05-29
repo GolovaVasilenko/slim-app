@@ -6,35 +6,51 @@
     {% include 'alerts.twig' %}
 {% endblock %}
 
-{% block content %}
-    <a href="{{ path_for('user.add') }}" class="uk-button uk-button-primary uk-align-right">Add User</a>
-    <h3 class="uk-card-title">Users List</h3>
-    <table class="uk-table uk-table-striped">
-        <thead>
-        <tr>
-            <th>#ID</th>
-            <th>Login</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Registered</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-        <tr>
-            <td>{{ user.id }}</td>
-            <td>{{ user.username }}</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.roles_mask }}</td>
-            <td>{{ user.registered | date }}</td>
-            <td>
-                <a href="{{ path_for('user.edit', {'id' : user.id}) }}"><span uk-icon="icon: file-edit"></span></a>&nbsp;
-                <a href="{{ path_for('user.delete', {'id' : user.id}) }}"><span uk-icon="icon: trash"></span></a>
-            </td>
-        </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+{% block labelPage %}<span uk-icon="icon: user; ratio: 2"></span> Users{% endblock %}
 
+{% block adminHeader %}Users List {% endblock %}
+
+{% block labelPathName %}Users{% endblock %}
+
+{% block content %}
+<div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@l">
+    <div>
+        <div class="uk-card uk-card-default">
+            <div class="uk-card-header">
+            <a href="{{ path_for('user.add') }}" class="uk-button uk-button-primary uk-align-right">Add User</a>
+            </div>
+            <div class="uk-card-body">
+                <table class="uk-table uk-table-striped">
+                    <thead>
+                    <tr>
+                        <th>#ID</th>
+                        <th>Avatar</th>
+                        <th>Login</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Registered</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td><img id="avatar" width="40" class="uk-border-circle" src="{{ user.avatar | default('/backend/images/no-avatar.png') }}" /></td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.roles_mask }}</td>
+                        <td>{{ user.registered | date }}</td>
+                        <td>
+                            <a href="{{ path_for('user.edit', {'id' : user.id}) }}"><span uk-icon="icon: file-edit"></span></a>&nbsp;
+                            <a href="{{ path_for('user.delete', {'id' : user.id}) }}"><span uk-icon="icon: trash"></span></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

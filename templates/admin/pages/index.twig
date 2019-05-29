@@ -6,31 +6,45 @@
     {% include 'alerts.twig' %}
 {% endblock %}
 
-{% block content %}
-    <a href="{{ path_for('page.add') }}" class="uk-button uk-button-primary uk-align-right">Add Page</a>
-    <h3 class="uk-card-title">Pages List</h3>
-    <table class="uk-table uk-table-striped">
-        <thead>
-        <tr>
-            <th>#ID</th>
-            <th>Page title</th>
-            <th>slug</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for page in pages %}
-            <tr>
-                <td>{{ page.id }}</td>
-                <td>{{ page.title }}</td>
-                <td>{{ page.slug }}</td>
-                <td>
-                    <a href="{{ path_for('page.edit', {'id' : page.id}) }}"><span uk-icon="icon: file-edit"></span></a>&nbsp;
-                    <a href="{{ path_for('page.delete', {'id' : page.id}) }}"><span uk-icon="icon: trash"></span></a>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+{% block labelPage %}<span uk-icon="icon: file-text; ratio: 2"></span> Pages{% endblock %}
 
+{% block adminHeader %} Pages List {% endblock %}
+
+{% block labelPathName %}Pages{% endblock %}
+
+{% block content %}
+    <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@l">
+        <div>
+            <div class="uk-card uk-card-default">
+                <div class="uk-card-header">
+                    <a href="{{ path_for('page.add') }}" class="uk-button uk-button-primary uk-align-right">Add Page</a>
+                </div>
+                <div class="uk-card-body">
+                    <table class="uk-table uk-table-striped">
+                        <thead>
+                        <tr>
+                            <th>#ID</th>
+                            <th>Page title</th>
+                            <th>slug</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for page in pages %}
+                            <tr>
+                                <td>{{ page.id }}</td>
+                                <td>{{ page.title }}</td>
+                                <td>{{ page.slug }}</td>
+                                <td>
+                                    <a href="{{ path_for('page.edit', {'id' : page.id}) }}"><span uk-icon="icon: file-edit"></span></a>&nbsp;
+                                    <a href="{{ path_for('page.delete', {'id' : page.id}) }}"><span uk-icon="icon: trash"></span></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

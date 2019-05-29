@@ -6,25 +6,38 @@
     {% include 'alerts.twig' %}
 {% endblock %}
 
+{% block labelPage %}<span uk-icon="icon: user; ratio: 2"></span> Users{% endblock %}
+
+{% block adminHeader %} Edit User {{ user.username | escape }} {% endblock %}
+
+{% block labelPathName %}Users{% endblock %}
+
 {% block content %}
-    <h3>Update User {{ user.username | escape }}</h3>
-    <form action="{{ path_for('user.update') }}" method="post">
-        <div class="uk-margin">
-            <label for="InputName">Login</label>
-            <input type="text" name="username" class="uk-input" value="{{ user.username | escape }}" id="InputName" aria-describedby="nameHelp" placeholder="Login">
+<div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@l">
+    <div>
+        <div class="uk-card uk-card-default">
+            <div class="uk-card-body">
+                <form action="{{ path_for('user.update') }}" method="post">
+                    <div class="uk-margin">
+                        <label for="InputName">Login</label>
+                        <input type="text" name="username" class="uk-input" value="{{ user.username | escape }}" id="InputName" aria-describedby="nameHelp" placeholder="Login">
+                    </div>
+                    <div class="uk-margin">
+                        <label for="InputEmail1">Email address</label>
+                        <input type="email" name="email" class="uk-input" value="{{ user.email | escape }}" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    </div>
+                    <div class="uk-margin">
+                        <label for="SelectRole">Select Role</label>
+                        <select id="SelectRole" class="uk-select" name="roles_mask">
+                            <option value="0" {% if(user.roles_mask == 0) %} selected {% endif %}>USER</option>
+                            <option value="1" {% if(user.roles_mask == 1) %} selected {% endif %}>ADMIN</option>
+                        </select>
+                    </div>
+                    <input type="hidden" name="id" value="{{ user.id }}">
+                    <button class="uk-button uk-button-primary">Update User</button>
+                </form>
+            </div>
         </div>
-        <div class="uk-margin">
-            <label for="InputEmail1">Email address</label>
-            <input type="email" name="email" class="uk-input" value="{{ user.email | escape }}" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        </div>
-        <div class="uk-margin">
-            <label for="SelectRole">Select Role</label>
-            <select id="SelectRole" class="uk-select" name="roles_mask">
-                <option value="0" {% if(user.roles_mask == 0) %} selected {% endif %}>USER</option>
-                <option value="1" {% if(user.roles_mask == 1) %} selected {% endif %}>ADMIN</option>
-            </select>
-        </div>
-        <input type="hidden" name="id" value="{{ user.id }}">
-        <button class="uk-button uk-button-primary">Update User</button>
-    </form>
+    </div>
+</div>
 {% endblock %}

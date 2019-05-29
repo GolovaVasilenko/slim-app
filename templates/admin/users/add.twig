@@ -2,32 +2,44 @@
 
 {% block metaTitle %}Add new User{% endblock %}
 
-{% block content %}
-    <h3>Add User</h3>
-<form action="{{ path_for('user.store') }}" method="post">
-    <div class="uk-margin">
-        <label for="InputName">Login</label>
-        <input type="text" name="username" class="uk-input" value="" id="InputName" aria-describedby="nameHelp" placeholder="Login">
-    </div>
-    <div class="uk-margin">
-        <label for="InputEmail1">Email address</label>
-        <input type="email" name="email" class="uk-input" value="" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    </div>
-    <div class="uk-margin">
-        <label for="InputPassword1">Password</label>
-        <input type="password" name="password" class="uk-input" id="InputPassword1" placeholder="Password">
-    </div>
-    <div class="uk-margin">
-        <label for="SelectRole">Select Role</label>
-        <select id="SelectRole" class="uk-select" name="roles_mask">
-            <option value="0">USER</option>
-            <option value="1">ADMIN</option>
-        </select>
-    </div>
-    <input type="hidden" name="verified" value="1">
-    <input type="hidden" value="{{ 'now'|date('U') }}" name="registered">
-    <button class="uk-button uk-button-primary">Add User</button>
-</form>
+{% block labelPage %}<span uk-icon="icon: user; ratio: 2"></span> Users{% endblock %}
 
+{% block adminHeader %} Add new User {% endblock %}
+
+{% block labelPathName %}Users{% endblock %}
+
+{% block content %}
+<div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@l">
+    <div>
+        <div class="uk-card uk-card-default">
+            <div class="uk-card-body">
+                <form action="{{ path_for('user.store') }}" method="post">
+                    <div class="uk-margin">
+                        <label for="InputName">Login</label>
+                        <input type="text" name="username" class="uk-input" value="" id="InputName" aria-describedby="nameHelp" placeholder="Login">
+                    </div>
+                    <div class="uk-margin">
+                        <label for="InputEmail1">Email address</label>
+                        <input type="email" name="email" class="uk-input" value="" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    </div>
+                    <div class="uk-margin">
+                        <label for="InputPassword1">Password</label>
+                        <input type="password" name="password" class="uk-input" id="InputPassword1" placeholder="Password">
+                    </div>
+                    <div class="uk-margin">
+                        <label for="SelectRole">Select Role</label>
+                        <select id="SelectRole" class="uk-select" name="roles_mask">
+                            <option value="0">USER</option>
+                            <option value="1">ADMIN</option>
+                        </select>
+                    </div>
+                    <input type="hidden" name="verified" value="1">
+                    <input type="hidden" value="{{ 'now'|date('U') }}" name="registered">
+                    <button class="uk-button uk-button-primary">Add User</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
