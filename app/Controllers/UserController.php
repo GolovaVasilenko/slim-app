@@ -2,7 +2,10 @@
 
 namespace App\Controllers;
 
+use App\Helpers\FileUploader;
 use App\Services\UserServiceManager;
+use Slim\Http\Request;
+use Slim\Http\Response;
 
 class UserController extends AdminController
 {
@@ -60,9 +63,18 @@ class UserController extends AdminController
         return $this->view->render($response, 'admin/users/edit.twig', ['user' => $user, 'messages' => $messages]);
     }
 
-    public function update($request, $response)
+    public function update(Request $request, Response $response)
     {
         $data = $request->getParsedBody();
+        $file = $request->getUploadedFiles()['avatar'];
+
+        if(!empty($file->file)) {
+            $dir = $this->container->get('settings')['media']['uploaded'];
+            $manager = new FileUploader();
+            $fileName = $manager->saveImage($file, $dir);
+            $data['avatar'] = $manager->getUploadDir() . $fileName;
+        }
+
         $sm = new UserServiceManager($this->container);
         $sm->update($data);
         $this->container->get('flash')->addMessage('success', 'User is successful update');

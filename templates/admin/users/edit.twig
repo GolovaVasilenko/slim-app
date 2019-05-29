@@ -17,24 +17,39 @@
     <div>
         <div class="uk-card uk-card-default">
             <div class="uk-card-body">
-                <form action="{{ path_for('user.update') }}" method="post">
-                    <div class="uk-margin">
-                        <label for="InputName">Login</label>
-                        <input type="text" name="username" class="uk-input" value="{{ user.username | escape }}" id="InputName" aria-describedby="nameHelp" placeholder="Login">
+                <form action="{{ path_for('user.update') }}" method="post" enctype="multipart/form-data">
+                    <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-2@xl">
+                        <div>
+                            <div class="uk-margin">
+                                <label for="InputName">Login</label>
+                                <input type="text" name="username" class="uk-input" value="{{ user.username | escape }}" id="InputName" aria-describedby="nameHelp" placeholder="Login">
+                            </div>
+                            <div class="uk-margin">
+                                <label for="InputEmail1">Email address</label>
+                                <input type="email" name="email" class="uk-input" value="{{ user.email | escape }}" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            </div>
+                            <div class="uk-margin">
+                                <label for="SelectRole">Select Role</label>
+                                <select id="SelectRole" class="uk-select" name="roles_mask">
+                                    <option value="0" {% if(user.roles_mask == 0) %} selected {% endif %}>USER</option>
+                                    <option value="1" {% if(user.roles_mask == 1) %} selected {% endif %}>ADMIN</option>
+                                </select>
+                            </div>
+                            <input type="hidden" name="id" value="{{ user.id }}">
+                            <button class="uk-button uk-button-primary">Update User</button>
+                        </div>
+                        <div>
+                            <div class="uk-margin">
+                                <img src="{{ user.avatar | default('/backend/images/no-avatar.png') }}"/>
+                            </div>
+                            <div class="uk-margin">
+                                <div uk-form-custom>
+                                    <input type="file" name="avatar">
+                                    <button class="uk-button uk-button-primary" type="button" tabindex="-1">Select Image</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="uk-margin">
-                        <label for="InputEmail1">Email address</label>
-                        <input type="email" name="email" class="uk-input" value="{{ user.email | escape }}" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    </div>
-                    <div class="uk-margin">
-                        <label for="SelectRole">Select Role</label>
-                        <select id="SelectRole" class="uk-select" name="roles_mask">
-                            <option value="0" {% if(user.roles_mask == 0) %} selected {% endif %}>USER</option>
-                            <option value="1" {% if(user.roles_mask == 1) %} selected {% endif %}>ADMIN</option>
-                        </select>
-                    </div>
-                    <input type="hidden" name="id" value="{{ user.id }}">
-                    <button class="uk-button uk-button-primary">Update User</button>
                 </form>
             </div>
         </div>
