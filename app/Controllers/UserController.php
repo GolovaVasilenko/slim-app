@@ -71,7 +71,7 @@ class UserController extends AdminController
         if(!empty($file->file)) {
             $dir = $this->container->get('settings')['media']['uploaded'];
             $manager = new FileUploader();
-            $fileName = $manager->saveImage($file, $dir);
+            $fileName = $manager->saveAvatar($file, $dir);
             $data['avatar'] = $manager->getUploadDir() . $fileName;
         }
 
@@ -84,8 +84,28 @@ class UserController extends AdminController
     public function delete($request, $response)
     {
         $id = $request->getAttribute("id");
+
         $sm = new UserServiceManager($this->container);
-        $sm->remove($id);
+        $user = $sm->find($id);
+
+        if(!empty($user->avatar) && $this->removeAvatar($user->avatar)) {
+            $sm->remove($id);
+            $this->container->get('flash')->addMessage('success', 'User is successful removed');
+        }
+        else {
+            $this->container->get('flash')->addMessage('errors', 'User is not removed ERROR');
+        }
         return $response->withRedirect('/admin/users');
+    }
+
+    private function removeAvatar($fileName)
+    {
+        $file = $this->container->get('settings')['media']['uploaded'] . '/' . $fileName;
+
+        if (file_exists($file)) {
+            unlink($file);
+            return true;
+        }
+        return false;
     }
 }

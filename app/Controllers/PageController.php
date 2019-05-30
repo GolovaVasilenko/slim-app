@@ -14,7 +14,7 @@ class PageController extends AbstractController
      * @param $args
      * @return mixed
      */
-    public function index($request, $response, $args)
+    public function index(Request $request, Response $response, $args)
     {
         $sm = new PageServiceManager($this->container);
 
@@ -29,7 +29,7 @@ class PageController extends AbstractController
      * @param $response
      * @return mixed
      */
-    public function show($request, $response)
+    public function show(Request $request, Response $response)
     {
         $slug = trim($request->getRequestTarget(), "/");
         $sm = new PageServiceManager($this->container);
@@ -44,7 +44,7 @@ class PageController extends AbstractController
      * @param $response
      * @return mixed
      */
-    public function pagesList($request, $response)
+    public function pagesList(Request $request, Response $response)
     {
         $messages = $this->container->get('flash')->getMessages();
 
