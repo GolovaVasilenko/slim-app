@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost:3306
--- Время создания: Май 30 2019 г., 18:23
+-- Время создания: Май 31 2019 г., 14:36
 -- Версия сервера: 5.7.22-0ubuntu0.17.10.1
 -- Версия PHP: 7.0.30-1+ubuntu17.10.1+deb.sury.org+1
 
@@ -80,6 +80,56 @@ INSERT INTO `pages` (`id`, `title`, `body`, `slug`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `posts`
+--
+
+CREATE TABLE `posts` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `body` text,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `post_rubric`
+--
+
+CREATE TABLE `post_rubric` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `rubric_id` int(10) UNSIGNED NOT NULL,
+  `post_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rubrics`
+--
+
+CREATE TABLE `rubrics` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `parent` int(10) UNSIGNED DEFAULT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `description` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `rubrics`
+--
+
+INSERT INTO `rubrics` (`id`, `parent`, `title`, `slug`, `description`) VALUES
+(6, 0, 'Blog', 'blog', '<p>asddfasdfs</p>\r\n'),
+(7, 0, 'Item root', 'item-root', '<p>afsgsdfasasfa</p>\r\n'),
+(8, 7, 'Item 1', 'item-1', '<p>asdfasdf</p>\r\n'),
+(9, 7, 'Item 2', 'item-2', '<p>asdfasdfasdf</p>\r\n');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `users`
 --
 
@@ -104,8 +154,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `password`, `username`, `status`, `avatar`, `verified`, `resettable`, `roles_mask`, `registered`, `last_login`, `force_logout`) VALUES
 (1, 'vasilenko75@gmail.com', '$2y$10$gdh4RlQQCUf2s1WMCEkDDeASFdfWe4/3lFeScXF5WoU3gYQhXzXs.', 'Sirius', 0, '', 1, 1, 0, 1557474064, 1558434628, 0),
-(8, 'vasilenko@lanars.com', '$2y$10$HRNP//JBeh0gtirTUGmvJu8VBIuDmLTZmCYuueiTbdgiuJ7tA0/Qi', 'Aleksey', 0, '/uploads/3da89f26bc6211b5.JPG', 1, 1, 1, 1558439063, 1559223950, 0),
-(9, 'asmira@gmail.com', '$2y$10$YnIInJa3KZEQ.S5GFHSs3Oqc3FTGwLqlP.jLPRy.dD9g8d/Mdn2Uy', 'Asmira', 0, NULL, 1, 1, 0, 1559225327, NULL, 0);
+(8, 'vasilenko@lanars.com', '$2y$10$HRNP//JBeh0gtirTUGmvJu8VBIuDmLTZmCYuueiTbdgiuJ7tA0/Qi', 'Aleksey', 0, '/uploads/3da89f26bc6211b5.JPG', 1, 1, 262144, 1558439063, 1559297841, 0);
 
 -- --------------------------------------------------------
 
@@ -141,8 +190,7 @@ CREATE TABLE `users_remembered` (
 --
 
 INSERT INTO `users_remembered` (`id`, `user`, `selector`, `token`, `expires`) VALUES
-(1, 1, 'dDAjUGnRqzkDArO0FZlXkZER', '$2y$10$rWeWwivajtDA/b2XYGCa2.avl9KnmhH4OM9ncbKC1D80N3im.1XRO', 1559202268),
-(4, 8, '6ThZjLB8SnXTuvusLI5EVKvV', '$2y$10$1vQnQ4we9a6sg6/a8uf09uTdlAXhbbCnHXePxJoZ5CZWG6LD2Dh1C', 1560236486);
+(1, 1, 'dDAjUGnRqzkDArO0FZlXkZER', '$2y$10$rWeWwivajtDA/b2XYGCa2.avl9KnmhH4OM9ncbKC1D80N3im.1XRO', 1559202268);
 
 -- --------------------------------------------------------
 
@@ -176,7 +224,7 @@ CREATE TABLE `users_throttling` (
 --
 
 INSERT INTO `users_throttling` (`bucket`, `tokens`, `replenished_at`, `expires_at`) VALUES
-('QduM75nGblH2CDKFyk0QeukPOwuEVDAUFE54ITnHM38', 71.7023, 1558508486, 1559048486),
+('QduM75nGblH2CDKFyk0QeukPOwuEVDAUFE54ITnHM38', 74, 1559297841, 1559837841),
 ('PZ3qJtO_NLbJfRIP-8b4ME4WA3xxc6n9nbCORSffyQ0', 4, 1558439063, 1558871063),
 ('OMhkmdh1HUEdNPRi-Pe4279tbL5SQ-WMYf551VVvH8U', 10.3645, 1558438229, 1558474229),
 ('DBN2flAXOjEcLOnLIe1YlfO52ikZjd4uBQ6_53vtg50', 498.098, 1558438185, 1558610985),
@@ -206,6 +254,32 @@ ALTER TABLE `node_media`
 ALTER TABLE `pages`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `slug` (`slug`);
+
+--
+-- Индексы таблицы `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `slug` (`slug`),
+  ADD KEY `title` (`title`);
+
+--
+-- Индексы таблицы `post_rubric`
+--
+ALTER TABLE `post_rubric`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `rubric_id` (`rubric_id`),
+  ADD KEY `post_id` (`post_id`);
+
+--
+-- Индексы таблицы `rubrics`
+--
+ALTER TABLE `rubrics`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `slug` (`slug`),
+  ADD KEY `title` (`title`),
+  ADD KEY `parent` (`parent`),
+  ADD KEY `parent_2` (`parent`);
 
 --
 -- Индексы таблицы `users`
@@ -266,6 +340,21 @@ ALTER TABLE `node_media`
 ALTER TABLE `pages`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
+-- AUTO_INCREMENT для таблицы `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT для таблицы `post_rubric`
+--
+ALTER TABLE `post_rubric`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT для таблицы `rubrics`
+--
+ALTER TABLE `rubrics`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
@@ -294,6 +383,13 @@ ALTER TABLE `users_resets`
 --
 ALTER TABLE `node_media`
   ADD CONSTRAINT `node_media_ibfk_1` FOREIGN KEY (`media_id`) REFERENCES `media` (`id`) ON DELETE CASCADE;
+
+--
+-- Ограничения внешнего ключа таблицы `post_rubric`
+--
+ALTER TABLE `post_rubric`
+  ADD CONSTRAINT `post_rubric_ibfk_1` FOREIGN KEY (`rubric_id`) REFERENCES `rubrics` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `post_rubric_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

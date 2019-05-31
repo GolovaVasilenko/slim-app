@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="563308c4-32c5-4dfb-a69c-4e481c35e0ae" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Controllers/PostController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Controllers/RubricController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Rubric.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/PostServiceManager.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/RubricServiceManager.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/posts/add.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/posts/edit.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/posts/index.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/rubrics/add.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/rubrics/edit.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/rubrics/index.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin.twig" afterDir="false" />
-    </list>
+    <list default="true" id="563308c4-32c5-4dfb-a69c-4e481c35e0ae" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +65,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="add.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/admin/rubrics/add.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="312">
@@ -91,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RubricController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RubricController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Controllers/RubricController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="554">
-              <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
+            <state relative-caret-position="516">
+              <caret line="47" column="33" lean-forward="true" selection-start-line="47" selection-start-column="33" selection-end-line="47" selection-end-column="33" />
               <folding>
                 <element signature="e#36#74#0#PHP" expanded="true" />
               </folding>
@@ -357,25 +340,24 @@
       <workItem from="1559053453266" duration="4314000" />
       <workItem from="1559117934244" duration="19055000" />
       <workItem from="1559203997176" duration="4094000" />
-      <workItem from="1559288068020" duration="13804000" />
+      <workItem from="1559288068020" duration="14064000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="195201000" />
+    <option name="totallyTimeSpent" value="195461000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-2" width="1920" height="1082" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.25925925" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.25925925" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1625" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1625" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -664,16 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controllers/PostController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="119" lean-forward="true" selection-start-line="15" selection-start-column="119" selection-end-line="15" selection-end-column="119" />
-          <folding>
-            <element signature="e#35#71#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/admin/media/index.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
@@ -695,13 +667,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/rubrics/index.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="744">
-          <caret line="40" column="92" selection-start-line="40" selection-start-column="92" selection-end-line="40" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -719,13 +684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/rubrics/add.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="18" column="70" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/pages/page.twig">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -738,11 +696,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controllers/RubricController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
+        <state relative-caret-position="516">
+          <caret line="47" column="33" lean-forward="true" selection-start-line="47" selection-start-column="33" selection-end-line="47" selection-end-column="33" />
           <folding>
             <element signature="e#36#74#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/rubrics/index.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="744">
+          <caret line="40" column="92" selection-start-line="40" selection-start-column="92" selection-end-line="40" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controllers/PostController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="119" lean-forward="true" selection-start-line="15" selection-start-column="119" selection-end-line="15" selection-end-column="119" />
+          <folding>
+            <element signature="e#35#71#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/rubrics/add.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="18" column="70" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
         </state>
       </provider>
     </entry>
