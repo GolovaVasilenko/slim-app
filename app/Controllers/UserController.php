@@ -11,6 +11,11 @@ class UserController extends AdminController
 {
     public function index($request, $response)
     {
+        if(!$this->canEditUser($this->container->get('auth'))) {
+            $this->container->get('flash')->addMessage('errors', 'This action forbidden ERROR');
+            return $response->withRedirect('/admin');
+        }
+
         $messages = $this->container->get('flash')->getMessages();
 
         $sm = new UserServiceManager($this->container);
@@ -22,6 +27,11 @@ class UserController extends AdminController
 
     public function add($request, $response)
     {
+        if(!$this->canEditUser($this->container->get('auth'))) {
+            $this->container->get('flash')->addMessage('errors', 'This action forbidden ERROR');
+            return $response->withRedirect('/admin');
+        }
+
         $messages = $this->container->get('flash')->getMessages();
 
         return $this->view->render($response, 'admin/users/add.twig', ['messages' => $messages]);
@@ -55,11 +65,17 @@ class UserController extends AdminController
 
     public function edit($request, $response)
     {
+        if(!$this->canEditUser($this->container->get('auth'))) {
+            $this->container->get('flash')->addMessage('errors', 'This action forbidden ERROR');
+            return $response->withRedirect('/admin');
+        }
         $messages = $this->container->get('flash')->getMessages();
 
         $id = $request->getAttribute("id");
+
         $sm = new UserServiceManager($this->container);
         $user = $sm->find($id);
+
         return $this->view->render($response, 'admin/users/edit.twig', ['user' => $user, 'messages' => $messages]);
     }
 
@@ -83,18 +99,21 @@ class UserController extends AdminController
 
     public function delete($request, $response)
     {
+
+        if(!$this->canEditUser($this->container->get('auth'))) {
+            $this->container->get('flash')->addMessage('errors', 'This action forbidden ERROR');
+            return $response->withRedirect('/admin');
+        }
+
         $id = $request->getAttribute("id");
 
         $sm = new UserServiceManager($this->container);
         $user = $sm->find($id);
 
-        if(!empty($user->avatar) && $this->removeAvatar($user->avatar)) {
-            $sm->remove($id);
-            $this->container->get('flash')->addMessage('success', 'User is successful removed');
-        }
-        else {
-            $this->container->get('flash')->addMessage('errors', 'User is not removed ERROR');
-        }
+        $this->removeAvatar($user->avatar);
+        $sm->remove($id);
+        $this->container->get('flash')->addMessage('success', 'User is successful removed');
+
         return $response->withRedirect('/admin/users');
     }
 
@@ -107,5 +126,13 @@ class UserController extends AdminController
             return true;
         }
         return false;
+    }
+
+    public function canEditUser(\Delight\Auth\Auth $auth)
+    {
+        return $auth->hasAnyRole(
+            \Delight\Auth\Role::ADMIN,
+            \Delight\Auth\Role::SUPER_ADMIN
+        );
     }
 }

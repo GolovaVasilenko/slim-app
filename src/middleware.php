@@ -32,7 +32,7 @@ $is_auth = function($request, $response, $next) {
 $admin = function($request, $response, $next) {
     $auth = $this->get('auth');
 
-    if ($auth->hasRole(\Delight\Auth\Role::ADMIN)) {
+    if ($auth->hasAnyRole(\Delight\Auth\Role::ADMIN, \Delight\Auth\Role::SUPER_ADMIN)) {
         $response = $next($request, $response);
 
         return $response;
