@@ -1,0 +1,53 @@
+{% extends "admin.twig" %}
+
+{% block metaTitle %}Edit rubric {{ rubric.title }}{% endblock %}
+
+{% block labelPage %}<span uk-icon="icon: file-text; ratio: 2"></span> Rubrics{% endblock %}
+
+{% block adminHeader %} Edit rubric {{ rubric.title }} {% endblock %}
+
+{% block labelPathName %}Rubrics{% endblock %}
+
+{% block content %}
+    <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@l">
+        <div>
+            <div class="uk-card uk-card-default">
+                <div class="uk-card-body">
+                    <form action="{{ path_for('rubric.store') }}" method="post">
+                        <div class="uk-margin">
+                            <label for="SelectRubric">Title</label>
+                            <select id="SelectRubric" class="uk-select" name="parent">
+                                <option value="">Root Rubric</option>
+                                {% for item in rubrics %}
+                                    <option value="{{ item.id }}"{% if(item.id == rubric.parent) %} selected {% endif %}>{{ item.title }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="uk-margin">
+                            <label for="InputTitle">Title</label>
+                            <input type="text" name="title" class="uk-input slug-title" value="{{ rubric.title | escape }}" id="InputTitle" aria-describedby="titleHelp" placeholder="Title">
+                        </div>
+                        <div class="uk-margin">
+                            <label for="InputSlug">Slug</label>
+                            <input type="text" name="slug" class="uk-input slug-res" value="{{ rubric.slug | escape }}" id="InputSlug" aria-describedby="slugHelp" placeholder="Slug">
+                        </div>
+                        <div class="uk-margin">
+                            <label for="editor">Description</label>
+                            <textarea id="editor" name="description" class="uk-textarea" rows="8">{{ rubric.description | escape }}</textarea>
+                        </div>
+                        <input type="hidden" name="id" value="{{ rubric.id }}" />
+                        <button class="uk-button uk-button-primary">Update Rubric</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+    <script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('editor');
+    </script>
+{% endblock %}

@@ -45,8 +45,9 @@ class RubricController extends AdminController
         $id = $request->getAttribute('id');
 
         $sm = new RubricServiceManager($this->container);
+        $rubrics = $sm->all();
         $rubric = $sm->find($id);
 
-        return $this->view->render($response, '/admin/rubrics/add.twig', ['rubric' => $rubric, 'messages' => $messages]);
+        return $this->view->render($response, '/admin/rubrics/edit.twig', ['rubric' => $rubric, 'rubrics' => $rubrics, 'messages' => $messages]);
     }
 }
