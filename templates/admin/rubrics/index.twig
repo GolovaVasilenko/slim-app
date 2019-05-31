@@ -27,6 +27,7 @@
                                 <th>#ID</th>
                                 <th>Rubric title</th>
                                 <th>slug</th>
+                                <th>parent</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -36,6 +37,7 @@
                                     <td>{{ rubric.id }}</td>
                                     <td>{{ rubric.title }}</td>
                                     <td>{{ rubric.slug }}</td>
+                                    <td>{{ rubric.getParentName() | default('root') }}</td>
                                     <td>
                                         <a href="{{ path_for('rubric.edit', {'id' : rubric.id}) }}"><span uk-icon="icon: file-edit"></span></a>&nbsp;
                                         <a href="{{ path_for('rubric.delete', {'id' : rubric.id}) }}"><span uk-icon="icon: trash"></span></a>

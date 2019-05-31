@@ -50,4 +50,29 @@ class RubricController extends AdminController
 
         return $this->view->render($response, '/admin/rubrics/edit.twig', ['rubric' => $rubric, 'rubrics' => $rubrics, 'messages' => $messages]);
     }
+
+    public function update(Request $request, Response $response)
+    {
+        $data = $request->getParsedBody();
+        $sm = new RubricServiceManager($this->container);
+
+        if($sm->update($data)){
+            $this->container->get('flash')->addMessage('success', 'Rubric is successful updated');
+            return $response->withRedirect('/admin/rubric/edit/' . $data['id']);
+        }
+        $this->container->get('flash')->addMessage('errors', 'Rubric is not update ERROR');
+        return $response->withRedirect('/admin/rubric/edit/' . $data['id']);
+    }
+
+    public function delete(Request $request, Response $response)
+    {
+        $id = $request->getAttribute('id');
+        $sm = new RubricServiceManager($this->container);
+        if($sm->remove($id)) {
+            $this->container->get('flash')->addMessage('success', 'Rubric is successful deleted');
+            return $response->withRedirect('/admin/rubrics');
+        }
+        $this->container->get('flash')->addMessage('errors', 'Rubric is not deleted ERROR');
+        return $response->withRedirect('/admin/rubrics');
+    }
 }

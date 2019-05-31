@@ -17,6 +17,7 @@ abstract class AbstractServiceManager implements DbServiceManagerInterface
     public function __construct(ContainerInterface $container)
     {
         $this->c = $container;
+        $this->setInstance();
     }
 
     /**
@@ -105,4 +106,12 @@ abstract class AbstractServiceManager implements DbServiceManagerInterface
      * @return mixed
      */
     abstract public static function getClass();
+
+    public function setInstance()
+    {
+        $class = static::getClass();
+
+        $class::$db = $this->c->get('db');
+    }
+
 }

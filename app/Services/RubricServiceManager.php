@@ -24,4 +24,5 @@ class RubricServiceManager extends AbstractServiceManager
     {
         return Rubric::class;
     }
+
 }

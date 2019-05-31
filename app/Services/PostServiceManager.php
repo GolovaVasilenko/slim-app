@@ -23,4 +23,5 @@ class PostServiceManager extends AbstractServiceManager
     {
         return Post::class;
     }
+
 }

@@ -22,4 +22,5 @@ class MediaServiceManager extends AbstractServiceManager
     {
         return Media::class;
     }
+
 }

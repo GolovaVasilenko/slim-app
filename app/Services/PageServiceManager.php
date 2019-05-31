@@ -18,4 +18,5 @@ class PageServiceManager extends AbstractServiceManager
     {
         return Page::class;
     }
+
 }

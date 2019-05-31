@@ -8,12 +8,16 @@
 
 {% block labelPathName %}Rubrics{% endblock %}
 
+{% block alert %}
+    {% include 'alerts.twig' %}
+{% endblock %}
+
 {% block content %}
     <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@l">
         <div>
             <div class="uk-card uk-card-default">
                 <div class="uk-card-body">
-                    <form action="{{ path_for('rubric.store') }}" method="post">
+                    <form action="{{ path_for('rubric.update') }}" method="post">
                         <div class="uk-margin">
                             <label for="SelectRubric">Title</label>
                             <select id="SelectRubric" class="uk-select" name="parent">

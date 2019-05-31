@@ -22,4 +22,5 @@ class UserServiceManager extends AbstractServiceManager
     {
         return User::class;
     }
+
 }
