@@ -61,4 +61,30 @@ $app->group('/admin', function() use( $admin ) {
 
     $this->get('/media/delete/{id:[0-9]+}', '\App\Controllers\MediaController:delete')->setName('media.delete');
 
+    /* Posts Admin*/
+    $this->get('/posts', '\App\Controllers\PostController:index')->setName('post.list');
+
+    $this->get('/post/add', '\App\Controllers\PostController:add')->setName('post.add');
+
+    $this->post('/post/store', '\App\Controllers\PostController:store')->setName('post.store');
+
+    $this->post('/post/update', '\App\Controllers\PostController:update')->setName('post.update');
+
+    $this->get('/post/edit/{id:[0-9]+}', '\App\Controllers\PostController:edit')->setName('post.edit');
+
+    $this->get('/post/delete/{id:[0-9]+}', '\App\Controllers\PostController:delete')->setName('post.delete');
+
+    /* Rubric Admin */
+    $this->get('/rubrics', '\App\Controllers\RubricController:index')->setName('rubric.list');
+
+    $this->get('/rubric/add', '\App\Controllers\RubricController:add')->setName('rubric.add');
+
+    $this->post('/rubric/store', '\App\Controllers\RubricController:store')->setName('rubric.store');
+
+    $this->post('/rubric/update', '\App\Controllers\RubricController:update')->setName('rubric.update');
+
+    $this->get('/rubric/edit/{id:[0-9]+}', '\App\Controllers\RubricController:edit')->setName('rubric.edit');
+
+    $this->get('/rubric/delete/{id:[0-9]+}', '\App\Controllers\RubricController:delete')->setName('rubric.delete');
+
 })->add($admin);

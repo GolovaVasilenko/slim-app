@@ -9,7 +9,12 @@ use Slim\Http\Response;
 
 class UserController extends AdminController
 {
-    public function index($request, $response)
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @return void|static
+     */
+    public function index(Request $request, Response $response)
     {
         if(!$this->canEditUser($this->container->get('auth'))) {
             $this->container->get('flash')->addMessage('errors', 'This action forbidden ERROR');
@@ -25,7 +30,12 @@ class UserController extends AdminController
         return $this->view->render($response, 'admin/users/index.twig', ['users' => $users, 'messages' => $messages]);
     }
 
-    public function add($request, $response)
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @return static
+     */
+    public function add(Request $request, Response $response)
     {
         if(!$this->canEditUser($this->container->get('auth'))) {
             $this->container->get('flash')->addMessage('errors', 'This action forbidden ERROR');
@@ -37,7 +47,12 @@ class UserController extends AdminController
         return $this->view->render($response, 'admin/users/add.twig', ['messages' => $messages]);
     }
 
-    public function store($request, $response)
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @return static
+     */
+    public function store(Request $request, Response $response)
     {
         $data = $request->getParsedBody();
 
@@ -63,7 +78,12 @@ class UserController extends AdminController
         return $response->withRedirect('/admin/users');
     }
 
-    public function edit($request, $response)
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @return static
+     */
+    public function edit(Request $request, Response $response)
     {
         if(!$this->canEditUser($this->container->get('auth'))) {
             $this->container->get('flash')->addMessage('errors', 'This action forbidden ERROR');
@@ -79,6 +99,12 @@ class UserController extends AdminController
         return $this->view->render($response, 'admin/users/edit.twig', ['user' => $user, 'messages' => $messages]);
     }
 
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @return static
+     * @throws \Exception
+     */
     public function update(Request $request, Response $response)
     {
         $data = $request->getParsedBody();
@@ -97,7 +123,12 @@ class UserController extends AdminController
         return $response->withRedirect('/admin/user/edit/' . (int) $data['id']);
     }
 
-    public function delete($request, $response)
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @return static
+     */
+    public function delete(Request $request, Response $response)
     {
 
         if(!$this->canEditUser($this->container->get('auth'))) {
@@ -117,6 +148,10 @@ class UserController extends AdminController
         return $response->withRedirect('/admin/users');
     }
 
+    /**
+     * @param $fileName
+     * @return bool
+     */
     private function removeAvatar($fileName)
     {
         $file = $this->container->get('settings')['media']['uploaded'] . '/' . $fileName;
@@ -128,6 +163,10 @@ class UserController extends AdminController
         return false;
     }
 
+    /**
+     * @param \Delight\Auth\Auth $auth
+     * @return bool
+     */
     public function canEditUser(\Delight\Auth\Auth $auth)
     {
         return $auth->hasAnyRole(

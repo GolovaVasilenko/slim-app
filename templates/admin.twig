@@ -72,6 +72,15 @@
                     <li><a href="{{ path_for('page.add') }}">Add Page</a></li>
                 </ul>
             </li>
+            <li class="uk-parent">
+                <a href="#"><span  uk-icon="icon: file-text"></span> Posts</a>
+                <ul class="uk-nav-sub">
+                    <li><a href="{{ path_for('post.list') }}">All Posts</a></li>
+                    <li><a href="{{ path_for('post.add') }}">Add Post</a></li>
+                    <li><a href="{{ path_for('rubric.list') }}">All Rubrics</a></li>
+                    <li><a href="{{ path_for('rubric.add') }}">Add Rubric</a></li>
+                </ul>
+            </li>
             <li>
                 <a href="{{ path_for('media.list') }}"><span  uk-icon="icon: image"></span> Media</a>
             </li>

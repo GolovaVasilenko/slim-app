@@ -1,0 +1,60 @@
+{% extends "admin.twig" %}
+
+{% block metaTitle %}All Posts{% endblock %}
+
+{% block alert %}
+    {% include 'alerts.twig' %}
+{% endblock %}
+
+{% block labelPage %}<span uk-icon="icon: file-text; ratio: 2"></span> Posts{% endblock %}
+
+{% block adminHeader %} Posts List {% endblock %}
+
+{% block labelPathName %}Posts{% endblock %}
+
+{% block content %}
+    <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@l">
+        <div>
+            <div class="uk-card uk-card-default">
+                <div class="uk-card-header">
+                    <a href="{{ path_for('post.add') }}" class="uk-button uk-button-primary uk-align-right">Add Post</a>
+                </div>
+                <div class="uk-card-body">
+                    {% if(posts) %}
+                    <table class="uk-table uk-table-striped">
+                        <thead>
+                        <tr>
+                            <th>#ID</th>
+                            <th>Post title</th>
+                            <th>slug</th>
+                            <th>created</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for post in posts %}
+                            <tr>
+                                <td>{{ post.id }}</td>
+                                <td>{{ post.title }}</td>
+                                <td>{{ post.slug }}</td>
+                                <td>{{ post.slug }}</td>
+                                <td>
+                                    <a href="{{ path_for('page.edit', {'id' : post.id}) }}"><span uk-icon="icon: file-edit"></span></a>&nbsp;
+                                    <a href="{{ path_for('page.delete', {'id' : post.id}) }}"><span uk-icon="icon: trash"></span></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                        <div>
+                            <div class="uk-tile uk-tile-muted">
+                                <p class="uk-h2">Not Files</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

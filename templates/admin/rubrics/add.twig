@@ -1,0 +1,52 @@
+{% extends "admin.twig" %}
+
+{% block metaTitle %}Add new rubric{% endblock %}
+
+{% block labelPage %}<span uk-icon="icon: file-text; ratio: 2"></span> Rubrics{% endblock %}
+
+{% block adminHeader %} Add new rubric {% endblock %}
+
+{% block labelPathName %}Rubrics{% endblock %}
+
+{% block content %}
+    <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@l">
+        <div>
+            <div class="uk-card uk-card-default">
+                <div class="uk-card-body">
+                    <form action="{{ path_for('rubric.store') }}" method="post">
+                        <div class="uk-margin">
+                            <label for="SelectRubric">Title</label>
+                            <select id="SelectRubric" class="uk-select" name="parent">
+                                <option value="">Root Rubric</option>
+                                {% for rubric in rubrics %}
+                                    <option value="{{ rubric.id }}">{{ rubric.title }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="uk-margin">
+                            <label for="InputTitle">Title</label>
+                            <input type="text" name="title" class="uk-input slug-title" value="" id="InputTitle" aria-describedby="titleHelp" placeholder="Title">
+                        </div>
+                        <div class="uk-margin">
+                            <label for="InputSlug">Slug</label>
+                            <input type="text" name="slug" class="uk-input slug-res" value="" id="InputSlug" aria-describedby="slugHelp" placeholder="Slug">
+                        </div>
+                        <div class="uk-margin">
+                            <label for="editor">Description</label>
+                            <textarea id="editor" name="description" class="uk-textarea" rows="8"></textarea>
+                        </div>
+                        <button class="uk-button uk-button-primary">Add Rubric</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+    <script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('editor');
+    </script>
+{% endblock %}
