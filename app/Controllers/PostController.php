@@ -28,9 +28,16 @@ class PostController extends AdminController
     public function store(Request $request, Response $response)
     {
         $data = $request->getParsedBody();
+        $rubric_ids = $data['rubric_id'];
+
+        unset($data['rubric_id']);
         $sm = new PostServiceManager($this->container);
 
         if($insert_id = $sm->insert($data)){
+            foreach($rubric_ids as $rubric_id) {
+                $sm->attachToCategory($rubric_id, $insert_id);
+            }
+
             $this->container->get('flash')->addMessage('success', 'Post is successful added');
             return $response->withRedirect('/admin/posts');
         }
@@ -55,9 +62,15 @@ class PostController extends AdminController
     public function update(Request $request, Response $response)
     {
         $data = $request->getParsedBody();
+        $rubric_ids = $data['rubric_id'];
+
+        unset($data['rubric_id']);
         $sm = new PostServiceManager($this->container);
 
         if($sm->update($data)){
+            foreach($rubric_ids as $rubric_id) {
+                $sm->attachToCategory($rubric_id, $data['id']);
+            }
             $this->container->get('flash')->addMessage('success', 'Post is successful updated');
             return $response->withRedirect('/admin/post/edit/' . $data['id']);
         }
@@ -70,6 +83,7 @@ class PostController extends AdminController
         $id = $request->getAttribute('id');
         $sm = new PostServiceManager($this->container);
         if($sm->remove($id)) {
+            $sm->detachFromCategory($id);
             $this->container->get('flash')->addMessage('success', 'Post is successful deleted');
             return $response->withRedirect('/admin/posts');
         }

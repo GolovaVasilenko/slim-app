@@ -1,0 +1,64 @@
+{% extends "admin.twig" %}
+
+{% block metaTitle %}Edit post {{ rubric.title }}{% endblock %}
+
+{% block labelPage %}<span uk-icon="icon: file-text; ratio: 2"></span> Posts{% endblock %}
+
+{% block adminHeader %} Edit post {{ rubric.title }} {% endblock %}
+
+{% block labelPathName %}Posts{% endblock %}
+
+{% block alert %}
+    {% include 'alerts.twig' %}
+{% endblock %}
+
+{% block content %}
+    <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@l">
+        <div>
+            <div class="uk-card uk-card-default">
+                <div class="uk-card-body">
+                    <form action="{{ path_for('post.update') }}" method="post">
+                        <div uk-grid>
+                            <div class="uk-width-expand@m">
+                                <div class="uk-margin">
+                                    <label for="InputTitle">Title</label>
+                                    <input type="text" name="title" class="uk-input slug-title" value="{{ post.title | escape }}" id="InputTitle" aria-describedby="titleHelp" placeholder="Title">
+                                </div>
+                                <div class="uk-margin">
+                                    <label for="InputSlug">Slug</label>
+                                    <input type="text" name="slug" class="uk-input slug-res" value="{{ post.slug | escape }}" id="InputSlug" aria-describedby="slugHelp" placeholder="Slug">
+                                </div>
+                                <div class="uk-margin">
+                                    <label for="editor">Description</label>
+                                    <textarea id="editor" name="body" class="uk-textarea" rows="8">{{ post.body | escape }}</textarea>
+                                </div>
+                                <input type="hidden" name="id" value="{{ post.id }}" />
+                            </div>
+                            <div class="uk-width-1-4@m">
+                                <h3>Rubrics</h3>
+                                <div class="uk-margin">
+                                    {% for rubric in rubrics %}
+                                        <p>
+                                            <label>
+                                                <input type="checkbox" value="{{ rubric.id }}" name="rubric_id[]" /> {{ rubric.title }}
+                                            </label>
+                                        </p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <button class="uk-button uk-button-primary">Update Rubric</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+    <script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('editor');
+    </script>
+{% endblock %}

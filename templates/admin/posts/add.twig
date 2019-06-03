@@ -18,26 +18,31 @@
             <div class="uk-card uk-card-default">
                 <div class="uk-card-body">
                     <form action="{{ path_for('post.store') }}" method="post">
-                        <div class="uk-margin">
-                            <label for="SelectRubric">Rubric</label>
-                            <select id="SelectRubric" class="uk-select" name="parent">
-                                <option value="">Root Rubric</option>
-                                {% for rubric in rubrics %}
-                                    <option value="{{ rubric.id }}">{{ rubric.title }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="uk-margin">
-                            <label for="InputTitle">Title</label>
-                            <input type="text" name="title" class="uk-input slug-title" value="" id="InputTitle" aria-describedby="titleHelp" placeholder="Title">
-                        </div>
-                        <div class="uk-margin">
-                            <label for="InputSlug">Slug</label>
-                            <input type="text" name="slug" class="uk-input slug-res" value="" id="InputSlug" aria-describedby="slugHelp" placeholder="Slug">
-                        </div>
-                        <div class="uk-margin">
-                            <label for="editor">Content</label>
-                            <textarea id="editor" name="body" class="uk-textarea" rows="8"></textarea>
+                        <div uk-grid>
+                            <div class="uk-width-expand@m">
+                                <div class="uk-margin">
+                                    <label for="InputTitle">Title</label>
+                                    <input type="text" name="title" class="uk-input slug-title" value="" id="InputTitle" aria-describedby="titleHelp" placeholder="Title">
+                                </div>
+                                <div class="uk-margin">
+                                    <label for="InputSlug">Slug</label>
+                                    <input type="text" name="slug" class="uk-input slug-res" value="" id="InputSlug" aria-describedby="slugHelp" placeholder="Slug">
+                                </div>
+                                <div class="uk-margin">
+                                    <label for="editor">Content</label>
+                                    <textarea id="editor" name="body" class="uk-textarea" rows="8"></textarea>
+                                </div>
+                            </div>
+                            <div class="uk-width-1-4@m">
+                                <h3>Rubrics</h3>
+                                <div class="uk-margin">
+                                    {% for rubric in rubrics %}
+                                        <p><label>
+                                        <input type="checkbox" value="{{ rubric.id }}" name="rubric_id[]" /> {{ rubric.title }}
+                                        </label></p>
+                                    {% endfor %}
+                                </div>
+                            </div>
                         </div>
                         <button class="uk-button uk-button-primary">Add Post</button>
                     </form>
