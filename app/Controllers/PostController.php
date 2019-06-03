@@ -34,6 +34,9 @@ class PostController extends AdminController
         $sm = new PostServiceManager($this->container);
 
         if($insert_id = $sm->insert($data)){
+
+            $sm->detachFromCategory($insert_id);
+
             foreach($rubric_ids as $rubric_id) {
                 $sm->attachToCategory($rubric_id, $insert_id);
             }
@@ -68,6 +71,7 @@ class PostController extends AdminController
         $sm = new PostServiceManager($this->container);
 
         if($sm->update($data)){
+            $sm->detachFromCategory($data['id']);
             foreach($rubric_ids as $rubric_id) {
                 $sm->attachToCategory($rubric_id, $data['id']);
             }

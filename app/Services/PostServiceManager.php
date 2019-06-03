@@ -31,8 +31,6 @@ class PostServiceManager extends AbstractServiceManager
      */
     public function attachToCategory($rubric_id, $post_id)
     {
-        $this->detachFromCategory($post_id);
-
         $sql = "INSERT INTO post_rubric (rubric_id, post_id) VALUES (:rubric_id, :post_id)";
         $stmt = $this->c->get('db')->prepare($sql);
         return $stmt->execute([ 'rubric_id' => $rubric_id, 'post_id' => $post_id ]);
