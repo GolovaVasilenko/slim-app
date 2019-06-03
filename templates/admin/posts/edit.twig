@@ -37,17 +37,18 @@
                             <div class="uk-width-1-4@m">
                                 <h3>Rubrics</h3>
                                 <div class="uk-margin">
+                                    {% set current_rubric=post.getRubricsId() %}
                                     {% for rubric in rubrics %}
                                         <p>
                                             <label>
-                                                <input type="checkbox" value="{{ rubric.id }}" name="rubric_id[]" /> {{ rubric.title }}
+                                                <input type="checkbox" {% if rubric.id in current_rubric %} checked {% endif %} value="{{ rubric.id }}" name="rubric_id[]" /> {{ rubric.title }}
                                             </label>
                                         </p>
                                     {% endfor %}
                                 </div>
                             </div>
                         </div>
-                        <button class="uk-button uk-button-primary">Update Rubric</button>
+                        <button class="uk-button uk-button-primary">Update Post</button>
                     </form>
                 </div>
             </div>

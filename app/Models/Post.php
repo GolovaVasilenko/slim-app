@@ -10,7 +10,7 @@ class Post
 
     static $db = null;
 
-    public function getRubricId()
+    public function getRubricsId()
     {
         $sql = "SELECT rubric_id FROM post_rubric WHERE post_id=:post_id";
         $stmt = self::$db->prepare($sql);
