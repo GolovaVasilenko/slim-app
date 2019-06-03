@@ -23,6 +23,7 @@ class Rubric
         $sql = "SELECT p.id, p.title, p.slug, p.body, p.created_at FROM posts p
                 JOIN post_rubric pr ON pr.post_id = p.id 
                 JOIN rubrics r ON pr.rubric_id = r.id WHERE pr.rubric_id=:id";
+
         $stmt = self::$db->prepare($sql);
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
         $stmt->execute(['id' => $this->id]);

@@ -37,7 +37,7 @@
                                 <td>{{ post.id }}</td>
                                 <td>{{ post.title }}</td>
                                 <td>{{ post.slug }}</td>
-                                <td>{{ post.slug }}</td>
+                                <td>{{ post.created_at | date("d.m.Y") }}</td>
                                 <td>
                                     <a href="{{ path_for('page.edit', {'id' : post.id}) }}"><span uk-icon="icon: file-edit"></span></a>&nbsp;
                                     <a href="{{ path_for('page.delete', {'id' : post.id}) }}"><span uk-icon="icon: trash"></span></a>
