@@ -17,7 +17,7 @@
         <div>
             <div class="uk-card uk-card-default">
                 <div class="uk-card-body">
-                    <form action="{{ path_for('post.store') }}" method="post">
+                    <form action="{{ path_for('post.store') }}" method="post" enctype="multipart/form-data">
                         <div uk-grid>
                             <div class="uk-width-expand@m">
                                 <div class="uk-margin">
@@ -41,6 +41,13 @@
                                         <input type="checkbox" value="{{ rubric.id }}" name="rubric_id[]" /> {{ rubric.title }}
                                         </label></p>
                                     {% endfor %}
+                                </div>
+                                <hr class="uk-divider-icon">
+                                <h3>Add Image</h3>
+                                <div class="uk-margin">
+                                    <div class="uploadfile">
+
+                                    </div>
                                 </div>
                             </div>
                         </div>

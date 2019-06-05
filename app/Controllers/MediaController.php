@@ -7,6 +7,7 @@ use App\Services\MediaServiceManager;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use Slim\Http\UploadedFile;
+use App\Helpers\FileUploader;
 
 class MediaController extends AdminController
 {
@@ -56,7 +57,11 @@ class MediaController extends AdminController
         return $this->view->render($response, 'admin/media/edit.twig', ['item' => $item, 'messages' => $messages]);
     }
 
-
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @return static
+     */
     public function update(Request $request, Response $response)
     {
         $data = $request->getParsedBody();
@@ -67,6 +72,11 @@ class MediaController extends AdminController
         return $response->withRedirect('/admin/media/edit/' . $data['id']);
     }
 
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @return static
+     */
     public function delete(Request $request, Response $response)
     {
         $id = $request->getAttribute('id');
@@ -83,7 +93,12 @@ class MediaController extends AdminController
 
     }
 
-
+    /**
+     * @param $directory
+     * @param UploadedFile $uploadedFile
+     * @return string
+     * @throws \Exception
+     */
     protected function moveUploadedFile($directory, UploadedFile $uploadedFile)
     {
         $extension = pathinfo($uploadedFile->getClientFilename(), PATHINFO_EXTENSION);
@@ -95,6 +110,10 @@ class MediaController extends AdminController
         return $filename;
     }
 
+    /**
+     * @param $filename
+     * @return bool
+     */
     protected function removeImage($filename)
     {
         $file = $this->container->get('settings')['media']['uploaded'] . '/' . $filename;
@@ -103,5 +122,11 @@ class MediaController extends AdminController
             return true;
         }
         return false;
+    }
+
+    public function saveImage(Request $request, Response $response)
+    {
+        $file = $request->getUploadedFiles()['media'];
+        var_dump($file);
     }
 }

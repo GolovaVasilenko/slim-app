@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         <link rel="stylesheet" href="/backend/css/style.css" />
         <link rel="stylesheet" href="/backend/css/notyf.min.css" />
+        <link rel="stylesheet" href="/backend/css/dropzone.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <script src="/backend/js/uikit.min.js" ></script>
         <script src="/backend/js/uikit-icons.min.js" ></script>
@@ -34,7 +35,7 @@
                     <div class="uk-navbar-right uk-light">
                         <ul class="uk-navbar-nav">
                             <li class="uk-active">
-                                <a href="#">Èrik &nbsp;<span class="ion-ios-arrow-down"></span></a>
+                                <a href="#">{{ current_user.username | default('user') }} &nbsp;<span class="ion-ios-arrow-down"></span></a>
                                 <div uk-dropdown="pos: bottom-right; mode: click; offset: -17;">
                                     <ul class="uk-nav uk-navbar-dropdown-nav">
                                         <li class="uk-nav-header">Options</li>
@@ -127,7 +128,7 @@
     <!-- Status Updater -->
     <script src="/backend/js/status.js"></script>
     <!-- Sample Charts -->
-    <!--script src="/backend/js/charts.js"></script-->
+    <script src="/backend/js/dropzone.js"></script>
     <!-- Sample Notifications -->
     <script src="/backend/js/notification.js"></script>
     <script src="/bundle.js"></script>

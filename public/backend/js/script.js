@@ -59,4 +59,12 @@ $(function() {
         }
     });
 
+    var myDropzone = new Dropzone("div.uploadfile", {
+        paramName: "media",
+        url: '/admin/media/saveimage',
+        acceptedFiles: 'image/*',
+        method: 'post'
+    });
+
+
 })

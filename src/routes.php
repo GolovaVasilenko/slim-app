@@ -61,6 +61,8 @@ $app->group('/admin', function() use( $admin ) {
 
     $this->get('/media/delete/{id:[0-9]+}', '\App\Controllers\MediaController:delete')->setName('media.delete');
 
+    $this->post('/media/saveimage'. '\App\Controllers\MediaController:saveImage');
+
     /* Posts Admin*/
     $this->get('/posts', '\App\Controllers\PostController:index')->setName('post.list');
 

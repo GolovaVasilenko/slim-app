@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Helpers;
+namespace App\Helpers;
 
 use Intervention\Image\ImageManager;
 use Slim\Http\UploadedFile;
@@ -72,7 +72,13 @@ class FileUploader extends ImageManager
      */
     protected function cropImage($image, $width, $height)
     {
-        $image->widen($width * 2);
+        if($image->width() < $image->height()){
+            $image->widen($width);
+        }
+        else {
+            $image->heighten($height);
+        }
+
         $cx = round($image->width() / 2);
         $cy = round($image->height() / 2);
         $x = round($cx - $width / 2);
