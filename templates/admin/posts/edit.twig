@@ -46,6 +46,23 @@
                                         </p>
                                     {% endfor %}
                                 </div>
+                                <hr class="uk-divider-icon">
+                                <h3>Add Image</h3>
+                                {% if image.url is empty %}
+                                <div class="uk-margin">
+                                    <div class="uploadfile">
+
+                                    </div>
+                                    <input type="hidden" name="image_id" value="{{ image.id }}"/>
+                                </div>
+                                {% else %}
+                                <div class="uk-margin">
+                                    <div class="img-container">
+                                        <img src="/uploads/{{ image.url }}" />
+                                    </div>
+                                    <input type="hidden" name="image_id" value="{{ image.id }}"/>
+                                </div>
+                                {% endif %}
                             </div>
                         </div>
                         <button class="uk-button uk-button-primary">Update Post</button>

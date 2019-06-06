@@ -29,8 +29,11 @@ class PostController extends AdminController
     {
         $data = $request->getParsedBody();
         $rubric_ids = $data['rubric_id'];
+        $image_id = $data['image_id'] ? : null;
 
         unset($data['rubric_id']);
+        unset($data['image_id']);
+
         $sm = new PostServiceManager($this->container);
 
         if($insert_id = $sm->insert($data)){
@@ -39,6 +42,10 @@ class PostController extends AdminController
 
             foreach($rubric_ids as $rubric_id) {
                 $sm->attachToCategory($rubric_id, $insert_id);
+            }
+
+            if($image_id) {
+                $sm->attachImage($insert_id, $image_id);
             }
 
             $this->container->get('flash')->addMessage('success', 'Post is successful added');
@@ -58,16 +65,24 @@ class PostController extends AdminController
 
         $rubrics = $sm->all();
         $post = $psm->find($id);
-
-        return $this->view->render($response, '/admin/posts/edit.twig', ['post' => $post, 'rubrics' => $rubrics, 'messages' => $messages]);
+var_dump($post->getImage());
+        return $this->view->render($response, '/admin/posts/edit.twig', [
+            'post' => $post,
+            'rubrics' => $rubrics,
+            'messages' => $messages,
+            'image' => $post->getImage()
+        ]);
     }
 
     public function update(Request $request, Response $response)
     {
         $data = $request->getParsedBody();
         $rubric_ids = $data['rubric_id'];
+        $image_id = $data['image_id'] ? : null;
 
         unset($data['rubric_id']);
+        unset($data['image_id']);
+
         $sm = new PostServiceManager($this->container);
 
         if($sm->update($data)){
@@ -75,6 +90,12 @@ class PostController extends AdminController
             foreach($rubric_ids as $rubric_id) {
                 $sm->attachToCategory($rubric_id, $data['id']);
             }
+
+            if($image_id) {
+                $sm->detachImage($data['id']);
+                $sm->attachImage($data['id'], $image_id);
+            }
+
             $this->container->get('flash')->addMessage('success', 'Post is successful updated');
             return $response->withRedirect('/admin/post/edit/' . $data['id']);
         }
@@ -87,6 +108,9 @@ class PostController extends AdminController
         $id = $request->getAttribute('id');
         $sm = new PostServiceManager($this->container);
         if($sm->remove($id)) {
+            $sm->removeImage($id);
+            $sm->detachImage($id);
+
             $sm->detachFromCategory($id);
             $this->container->get('flash')->addMessage('success', 'Post is successful deleted');
             return $response->withRedirect('/admin/posts');

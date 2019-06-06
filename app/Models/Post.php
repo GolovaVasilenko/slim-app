@@ -23,4 +23,16 @@ class Post
         }
         return $result;
     }
+
+    public function getImage()
+    {
+        $sql = "SELECT m.id, m.url, m.title, m.alt, m.description FROM media AS m 
+                JOIN node_media AS nm ON nm.media_id=m.id 
+                JOIN posts AS p ON nm.node_id=p.id 
+                WHERE p.id=:id";
+        $stmt = self::$db->prepare($sql);
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        $stmt->execute(['id' => $this->id]);
+        return $stmt->fetch();
+    }
 }

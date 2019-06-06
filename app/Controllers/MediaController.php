@@ -32,13 +32,16 @@ class MediaController extends AdminController
             $img_id = $sm->insert(['url' => $filename]);
 
             if($img_id){
+                if ($request->isXhr()) {
+                    return $response->withJson(['fileName' => $filename, 'imageId' => $img_id]);
+                }
                 $this->container->get('flash')->addMessage('success', 'Image is successful uploaded');
                 return $response->withRedirect('/admin/media');
             }
         }
+
         $this->container->get('flash')->addMessage('errors', 'Image is not uploaded ERROR');
         return $response->withRedirect('/admin/media');
-
     }
 
     /**
@@ -114,7 +117,7 @@ class MediaController extends AdminController
      * @param $filename
      * @return bool
      */
-    protected function removeImage($filename)
+    public function removeImage($filename)
     {
         $file = $this->container->get('settings')['media']['uploaded'] . '/' . $filename;
         if (file_exists($file)) {
@@ -124,9 +127,4 @@ class MediaController extends AdminController
         return false;
     }
 
-    public function saveImage(Request $request, Response $response)
-    {
-        $file = $request->getUploadedFiles()['media'];
-        var_dump($file);
-    }
 }

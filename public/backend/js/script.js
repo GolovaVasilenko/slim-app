@@ -61,9 +61,17 @@ $(function() {
 
     var myDropzone = new Dropzone("div.uploadfile", {
         paramName: "media",
-        url: '/admin/media/saveimage',
+        url: '/admin/media/save-image',
         acceptedFiles: 'image/*',
-        method: 'post'
+        method: 'post',
+        init: function() {
+            $(this.element).html(this.options.dictDefaultMessage);
+        },
+        success: function(file, response) {
+            var url = file.dataURL;
+            $('.img-container').html('<img src="'+url+'" />');
+            $('input[name="image_id"]').val(response.imageId);
+        }
     });
 
 

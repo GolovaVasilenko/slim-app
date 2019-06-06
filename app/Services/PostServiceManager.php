@@ -3,6 +3,7 @@
 namespace App\Services;
 
 
+use App\Controllers\MediaController;
 use App\Models\Post;
 
 class PostServiceManager extends AbstractServiceManager
@@ -45,5 +46,36 @@ class PostServiceManager extends AbstractServiceManager
         $sql = "DELETE FROM post_rubric WHERE post_id=:post_id";
         $stmt = $this->c->get('db')->prepare($sql);
         return $stmt->execute([ 'post_id' => $post_id ]);
+    }
+
+    /**
+     * @param $post_id
+     * @param $image_id
+     * @return mixed
+     */
+    public function attachImage($post_id, $image_id)
+    {
+        $sql = "INSERT INTO node_media (node_id, media_id) VALUES (:node_id, :media_id)";
+        $stmt = $this->c->get('db')->prepare($sql);
+        return $stmt->execute([ 'node_id' => $post_id, 'media_id' => $image_id ]);
+    }
+
+    /**
+     * @param $post_id
+     * @return mixed
+     */
+    public function detachImage($post_id)
+    {
+        $sql = "DELETE FROM node_media WHERE node_id=:post_id";
+        $stmt = $this->c->get('db')->prepare($sql);
+        return $stmt->execute([ 'post_id' => $post_id ]);
+    }
+
+    public function removeImage($post_id)
+    {
+        $mc = new MediaController($this->c);
+        $post = $this->find($post_id);
+        $image = $post->getImage();
+        return $mc->removeImage($image['url']);
     }
 }
